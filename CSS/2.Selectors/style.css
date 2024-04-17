@@ -54,3 +54,8 @@ a:active {
 #psycho p:first-child {
     background-color: darkorchid;
 }
+
+/* Attribute Selector */
+[art-x=a] {
+    background-color: cadetblue;
+}

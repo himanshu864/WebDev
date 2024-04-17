@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specificity and Cascade</title>
+    <style>
+        /* element selector 1 point */
+        p {
+            color: red !important;
+        }
+
+        /* element selector 1 point */
+        h1 {
+            color: aqua;
+        }
+
+        /* class selector 10 points */
+        .cyel {
+            color: yellow;
+        }
+
+        /* class selector 10 points */
+        .cpur {
+            color: purple;
+        }
+
+        /* Attribute selector 10 points */
+        [bsattri=xyz] {
+            color: slateblue
+        }
+
+        /* 1 + 10 = 11 */
+        h3.bezos {
+            background-color: blueviolet;
+        }
+
+        /* 10 */
+        .jeffrey {
+            background-color: brown;
+        }
+
+        /* 1 (element) + 20 (classes) + 10 (attribute) + 10 (pseudo-class) = 41. */
+        a.harryclass.rohan-class[href]:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p style="color:green;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem commodi illo in.</p>
+
+    <h1 class="cyel cpur" bsattri=xyz>Hello dude</h1>
+
+    <h3 class="jeffrey bezos">example of calculating specificity</h3>
+
+</body>
+
+</html>
