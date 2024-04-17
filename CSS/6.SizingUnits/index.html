@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sizing units</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .goodbox {
+            border: 2px solid black;
+            /* width: 1920px; the width of your moniter/display */
+            width: 100vw;
+            background-color: aqua;
+            box-sizing: border-box;
+            /* to avoid horizontal scroll ball for extra border */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="goodbox">
+        I am a good box
+    </div>
+</body>
+
+</html>
