@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Display Property</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        span {
+            border: 2px solid brown;
+        }
+
+        .box {
+            /* display: inline; */
+            display: inline-block;
+            padding: 40px;
+            margin: 30px;
+            width: 20vw;
+            background-color: antiquewhite;
+            border: 2px solid slateblue;
+        }
+
+        .box1 {
+            /* display: none; */
+            /* visibility: hidden; */
+
+            /* display: flex; */
+            display: inline-flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="box box1">
+        this is a div inlined
+    </div>
+
+    <span>
+        spanning my exsistence
+    </span>
+
+    <div class="box">
+        div inline-blocked
+    </div>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nostrum sint harum ducimus. Quo, excepturi? Nihil
+        iure eum tempora assumenda.
+    </p>
+</body>
+
+</html>
