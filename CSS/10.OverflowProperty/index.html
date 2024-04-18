@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+    <style>
+        .box {
+            width: 20vw;
+            height: 20vh;
+            background-color: antiquewhite;
+            border: 2px solid black;
+            white-space: nowrap;
+            overflow: auto;
+            /* text-overflow: ellipsis; */
+        }
+
+        .box1 {
+            width: 25vw;
+            height: 20vh;
+            background-color: aqua;
+            border: 2px solid black;
+            overflow: hidden auto;
+            /* overflow-x: hidden;
+            overflow-y: auto; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero ea inventore, aliquid minima tenetur nesciunt
+        deleniti, magnam dolores saepe debitis vitae praesentium aspernatur fuga adipisci animi. Quasi officia
+    </div>
+
+    <div class="box1">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed et fuga magni, vero voluptatibus consectetur
+        quaerat laudantium vel vitae accusamus reiciendis dolor quod eaque neque perferendis? Illum magni labore placeat
+        quaerat laudantium vel vitae accusamus reiciendis dolor quod eaque neque perferendis? Illum magni labore placeat
+        quaerat laudantium vel vitae accusamus reiciendis dolor quod eaque neque perferendis? Illum magni labore placeat
+        quaerat laudantium vel vitae accusamus reiciendis dolor quod eaque neque perferendis? Illum magni labore placeat
+        sit sapiente.
+    </div>
+</body>
+
+</html>
