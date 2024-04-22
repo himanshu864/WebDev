@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More on Selectors</title>
+    <style>
+        .boxes * {
+            border: 2px solid black;
+        }
+
+        .box::first-letter {
+            background-color: blue;
+            font-size: 30px;
+        }
+
+        .box:nth-child(odd)::first-line {
+            background-color: aqua;
+        }
+
+        .boxes::before {
+            content: "I will complete CSS this week";
+            background-color: wheat;
+        }
+
+        .boxes::after {
+            content: "After box content insert";
+            color: red;
+        }
+
+        ::selection {
+            color: aquamarine;
+            background-color: black;
+        }
+
+        input::placeholder {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boxes">
+        <div class="box">oh</div>
+        <div class="box">yeah</div>
+        <div class="box">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis, praesentium perferendis
+            maxime sapiente fuga, voluptatum dolor nostrum placeat harum deserunt maiores? Commodi esse pariatur tempora
+            libero architecto est provident adipisci nihil quas? Ducimus unde odio, exercitationem praesentium
+            voluptatem perferendis quisquam voluptate sint dolorem beatae, possimus quaerat eius animi tempore voluptas?
+            Perspiciatis cumque amet ullam assumenda id explicabo dolore. Reprehenderit, beatae tempore! Mollitia modi
+            sit sequi corporis at fugit ab voluptates eum rem placeat similique magni, reiciendis distinctio dolore!
+            Quod ab iste in, soluta officia molestiae quis optio eius asperiores nam nobis quibusdam beatae possimus
+            inventore obcaecati odio nostrum ipsa ad.</div>
+    </div>
+    <input type="text" placeholder="Enter text here">
+</body>
+
+</html>
