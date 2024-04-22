@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+    <style>
+        :root {
+            --f1font: rgb(4, 4, 118);
+            --f2font: slateblue;
+            --f3font: rgb(169, 171, 233);
+            --bfs: 50vw;
+        }
+
+        ul {
+            --mypad: 30px;
+        }
+
+        .listing {
+            /* background-color: green; */
+            background-color: var(--f1font);
+            padding: var(--mypad);
+        }
+
+        .tags {
+            /* background-color: greenyellow; */
+            background-color: var(--f2font);
+        }
+
+        .box {
+
+            /* padding: var(--mypad);  no effect as out of scope*/
+            background-color: var(--f3font);
+            width: var(--bfs);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul class="listing">
+            <li class="tags">Home</li>
+            <li class="tags">About</li>
+            <li class="tags">Contact</li>
+        </ul>
+    </div>
+
+    <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quae nesciunt mollitia
+        dolore, quod error,
+        autem hic est repellat ad deleniti vero perferendis. Odio animi rem consectetur sit nisi recusandae tempora,
+        quae dolorem alias corporis laborum repellendus autem in illum eveniet expedita. Praesentium, magni alias.</div>
+</body>
+
+</html>
