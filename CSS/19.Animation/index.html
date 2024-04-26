@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        .container {
+            width: 50vw;
+            height: 50vh;
+            background-color: turquoise;
+        }
+
+        .box {
+            width: 10vw;
+            height: 10vh;
+            background-color: antiquewhite;
+            /* animation-name: demo;
+            animation-duration: 2s; */
+            /* animation-iteration-count: infinite; */
+            /* animation-timing-function: ease-in-out;
+            animation-play-state: running;
+            animation-delay: 1s;
+            animation-fill-mode: both; */
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: demo 2s ease-in-out 1s alternate infinite both, pride 10s linear forwards;
+        }
+
+        @keyframes demo {
+            from {}
+
+            to {
+                transform: translateX(200%);
+            }
+        }
+
+        @keyframes pride {
+            0% {
+                background-color: red;
+            }
+
+            25% {
+                background-color: green;
+            }
+
+            50% {
+                background-color: yellow;
+            }
+
+            75% {
+                background-color: blue;
+            }
+
+            100% {
+                background-color: crimson;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">box</div>
+    </div>
+</body>
+
+</html>
