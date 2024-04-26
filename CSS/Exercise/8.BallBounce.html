@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .blue {
+            width: 80vh;
+            height: 80vh;
+            background-color: blue;
+            position: relative;
+        }
+
+        .ball {
+            background-color: red;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 10vh;
+            height: 10vh;
+            border-radius: 5vh;
+            border: 2px solid black;
+            box-sizing: border-box;
+            animation: x-axis 3s linear infinite alternate, y-axis 0.5s cubic-bezier(0.33333, 0.66667, 0.66667, 1) infinite alternate;
+        }
+
+        @keyframes x-axis {
+            from {
+                left: 0;
+            }
+
+            to {
+                left: 70vh;
+            }
+        }
+
+        @keyframes y-axis {
+            from {}
+
+            to {
+                transform: translateY(-25vh);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blue">
+        <div class="ball"></div>
+    </div>
+</body>
+
+</html>
