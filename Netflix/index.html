@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix India - Watch TV Shows Online, Watch Movies...</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            background-color: black;
+        }
+
+        .FAQ {
+            width: 80%;
+            margin: auto;
+        }
+
+        .fqtitle {
+            font-size: 42px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .block {
+            margin: 10px;
+        }
+
+        .query {
+            display: flex;
+            align-items: center;
+            height: 10vh;
+            background-color: rgb(45, 45, 45);
+            justify-content: space-between;
+        }
+
+        .qtext {
+            font-size: 22px;
+            padding-left: 20px;
+        }
+
+        .qross {
+            font-size: 45px;
+            margin-right: 20px;
+            font-weight: 100;
+        }
+
+        .query:hover {
+            background-color: rgb(65, 65, 65);
+        }
+
+        .query:active {
+            .qross {
+                transform: rotate(45deg);
+            }
+        }
+
+        .hidden-text {
+            margin-top: 1px;
+            font-size: 22px;
+            padding: 20px;
+            background-color: rgb(45, 45, 45);
+        }
+
+        #t1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="fqtitle">Frequently Asked Questions</h1>
+    <article class="FAQ">
+        <section class="block">
+            <div class="query">
+                <div class="qtext">What is Netflix?</div>
+                <div class="qross">+</div>
+            </div>
+            <div class="hidden-text">
+                <div id="t1">
+                    Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime,
+                    documentaries and more – on thousands of internet-connected devices.
+                </div>
+                <div id="t2">
+                    You can watch as much as you want, whenever you want, without a single ad – all for one low monthly
+                    price. There's always something new to discover, and new TV shows and movies are added every week!
+                </div>
+            </div>
+        </section>
+        <section class="block">
+            <div class="query">
+                <div class="qtext">How much does Netflix cost?</div>
+                <div class="qross">+</div>
+            </div>
+            <div class="hidden-text">
+                <div id="t1">
+                    Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed
+                    monthly fee. Plans range from ₹149 to ₹649 a month. No extra costs, no contracts.
+                </div>
+            </div>
+        </section>
+    </article>
+</body>
+
+</html>
