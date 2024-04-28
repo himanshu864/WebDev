@@ -21,12 +21,12 @@ html {
 }
 
 .logo img {
-    margin-left: 200px;
+    margin-left: 10vw;
     width: 150px;
 }
 
 .navbutton {
-    margin-right: 250px;
+    margin-right: 10vw;
     display: flex;
 }
 
@@ -40,16 +40,27 @@ html {
 }
 
 .sign-in {
-    background-color: red;
     padding: 7px 15px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.sign-in:hover {
+    background-color: #b20710;
+    transition: all linear 0.15s;
+
+}
+
+.sign-in:not(:hover) {
+    background-color: rgb(229, 9, 20);
+    transition: all linear 0.15s;
 }
 
 .home {
     height: 700px;
-    background: rgb(0 0 0 / 40%);
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/058eee37-6c24-403a-95bd-7d85d3260ae1/e10ba8a6-b96a-4308-bee4-76fab1ebd6ca/IN-en-20240422-POP_SIGNUP_TWO_WEEKS-perspective_WEB_db9348f2-4d68-4934-b495-6d9d1be5917e_large.jpg");
+    background: rgb(0 0 0 / 50%);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/058eee37-6c24-403a-95bd-7d85d3260ae1/e10ba8a6-b96a-4308-bee4-76fab1ebd6ca/IN-en-20240422-POP_SIGNUP_TWO_WEEKS-perspective_WEB_db9348f2-4d68-4934-b495-6d9d1be5917e_large.jpg");
     object-fit: cover;
     object-position: center center;
     background-blend-mode: soft-light;
@@ -72,6 +83,109 @@ html {
     margin: 20px;
 }
 
+.membership {
+    margin: 50px;
+    text-align: center;
+}
+
+#fix-home-mg {
+    margin-top: 30px;
+}
+
+.member-text {
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.member-form {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.email-box input {
+    width: 23vw;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.388);
+    padding-left: 20px;
+    font-size: 16px;
+    border: 1px solid grey;
+    border-radius: 5px;
+
+}
+
+/* email-box input::placeholder {} */
+
+.started {
+    height: 50px;
+    font-size: 20px;
+    /* padding: 20px; */
+}
+
+.card {
+    display: flex;
+    justify-content: space-around;
+    height: 600px;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+}
+
+.tv-img {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.topitem {
+    z-index: 3;
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.bottomitem {
+    z-index: 1;
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+#vid1 {
+    margin-left: 80px;
+    margin-bottom: 20px;
+}
+
+#vid3 {
+    width: 370px;
+    margin: auto;
+    margin-bottom: 210px;
+}
+
+.loading {
+    display: flex;
+    height: 10vh;
+    width: 20vw;
+    background-color: black;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+.stranger-div img {
+    height: 8vh;
+}
+
+/* fix img and much more  */
+
+.card-desc {
+    font-size: 21px;
+    margin-top: 25px;
+}
+
 .FAQ {
     width: 80%;
     margin: auto;
@@ -91,7 +205,6 @@ html {
     display: flex;
     align-items: center;
     height: 10vh;
-    background-color: rgb(45, 45, 45);
     justify-content: space-between;
 }
 
@@ -138,4 +251,19 @@ html {
 
 .t1 {
     margin-bottom: 20px;
+}
+
+.feet {
+    width: 80%;
+    margin: 70px auto;
+    border-bottom-style: none;
+}
+
+.link-grid {
+    display: flex;
+    gap: 275px;
+}
+
+.link-grid ul {
+    list-style-type: none;
 }
