@@ -1,12 +1,67 @@
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 100;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2) format('woff2'), url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 300;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff2) format('woff2'), url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 400;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2) format('woff2'), url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 700;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Md.woff2) format('woff2'), url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Md.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 800;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff2) format('woff2'), url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 900;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Blk.woff2) format('woff2'), url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Blk.woff) format('woff')
+}
+
+.netflix-sans-font-loaded {
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
+.netflix-sans-font-loaded.nkufi-font-loaded {
+    font-family: NKufi, 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
+.netflix-sans-font-loaded.graphik-font-loaded {
+    font-family: GraphikTH, 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
 * {
     margin: 0;
     padding: 0;
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Netflix Sans', 'Segoe UI';
 }
 
 html {
     background-color: black;
+
 }
 
 .segment {
@@ -69,8 +124,8 @@ html {
 }
 
 .headest {
-    font-size: 44px;
-    letter-spacing: -2px;
+    font-size: 48px;
+    font-weight: 900;
 }
 
 .main-title {
@@ -79,7 +134,7 @@ html {
 }
 
 #main-text {
-    font-size: 22px;
+    font-size: 24px;
     text-align: center;
     margin: 20px;
 }
@@ -94,7 +149,7 @@ html {
 }
 
 .member-text {
-    font-size: 19px;
+    font-size: 20px;
     margin-bottom: 20px;
 }
 
@@ -106,8 +161,8 @@ html {
 }
 
 .email-box input {
-    width: 23vw;
-    height: 60px;
+    width: 350px;
+    height: 55px;
     background-color: rgba(0, 0, 0, 0.388);
     padding-left: 20px;
     font-size: 16px;
@@ -119,8 +174,9 @@ html {
 /* email-box input::placeholder {} */
 
 .started {
-    height: 60px;
-    font-size: 21px;
+    height: 55px;
+    min-width: 218px;
+    font-size: 25px;
     font-weight: bolder;
     padding-left: 25px;
     padding-right: 25px;
@@ -133,6 +189,11 @@ html {
     width: 80%;
     margin: auto;
     align-items: center;
+}
+
+.card-desc {
+    font-size: 21px;
+    margin-top: 25px;
 }
 
 .tv-img {
@@ -200,11 +261,6 @@ html {
 /* fix img and much more  */
 .stranger-gif img {
     height: 6vh;
-}
-
-.card-desc {
-    font-size: 21px;
-    margin-top: 25px;
 }
 
 .FAQ {
@@ -306,4 +362,100 @@ html {
     color: rgb(180, 180, 180);
     text-decoration: underline;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1280px) {
+    .card {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 955px) {
+    .logo img {
+        margin-left: 4vw;
+        width: 90px;
+    }
+
+    .navbutton {
+        margin-right: 4vw;
+    }
+
+    .home {
+        background-size: 1100px;
+        height: 500px;
+        background-position: center 1740px;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/058eee37-6c24-403a-95bd-7d85d3260ae1/e10ba8a6-b96a-4308-bee4-76fab1ebd6ca/IN-en-20240422-POP_SIGNUP_TWO_WEEKS-perspective_WEB_db9348f2-4d68-4934-b495-6d9d1be5917e_large.jpg");
+    }
+
+    .headest {
+        font-size: 30px;
+    }
+
+    .main-title {
+        margin-top: 100px;
+    }
+
+    #main-text {
+        font-size: 18px;
+    }
+
+    .member-text {
+        font-size: 18px;
+    }
+
+    .email-box input {
+        font-size: 14px;
+    }
+
+    .card {
+        /* height: 75vw; */
+        flex-direction: column;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .card-desc {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 725px) {
+    .email-box input {
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .main-title {
+        margin-top: 40px;
+    }
+
+    .home {
+        background-size: 800px;
+        height: 500px;
+        background-position: center center;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/058eee37-6c24-403a-95bd-7d85d3260ae1/e10ba8a6-b96a-4308-bee4-76fab1ebd6ca/IN-en-20240422-POP_SIGNUP_TWO_WEEKS-perspective_WEB_db9348f2-4d68-4934-b495-6d9d1be5917e_large.jpg");
+    }
+
+    .member-form {
+        display: block;
+    }
+
+    .email-box input {
+        width: 80vw;
+        height: 45px;
+        margin-bottom: 15px;
+    }
+
+    .started {
+        height: 45px;
+        min-width: 0px;
+        width: 160px;
+        font-size: 18px;
+        font-weight: bolder;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
 }
