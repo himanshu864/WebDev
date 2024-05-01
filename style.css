@@ -74,6 +74,7 @@ html {
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    margin-top: 25px;
 }
 
 .logo img {
@@ -140,7 +141,8 @@ html {
 }
 
 .membership {
-    margin: 50px;
+    width: 75%;
+    margin: 50px auto;
     text-align: center;
 }
 
@@ -168,15 +170,14 @@ html {
     font-size: 16px;
     border: 1px solid grey;
     border-radius: 5px;
-
 }
 
 /* email-box input::placeholder {} */
 
 .started {
     height: 55px;
-    min-width: 218px;
-    font-size: 25px;
+    min-width: 210px;
+    font-size: 23px;
     font-weight: bolder;
     padding-left: 25px;
     padding-right: 25px;
@@ -189,6 +190,11 @@ html {
     width: 80%;
     margin: auto;
     align-items: center;
+
+}
+
+.card-text {
+    flex-basis: 50%;
 }
 
 .card-desc {
@@ -196,11 +202,15 @@ html {
     margin-top: 25px;
 }
 
-.tv-img {
+.oppa {
+    flex-direction: row-reverse;
+}
+
+.overlap-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
 }
 
@@ -208,48 +218,49 @@ html {
     z-index: 3;
     grid-row: 1/2;
     grid-column: 1/2;
+    width: 100%;
 }
 
 .bottomitem {
     z-index: 1;
     grid-row: 1/2;
     grid-column: 1/2;
+    width: 100%;
 }
 
 #vid1 {
-    margin-left: 80px;
-    margin-bottom: 20px;
+    width: 80%;
 }
 
 #vid3 {
-    width: 370px;
-    margin: auto;
-    margin-bottom: 210px;
+    width: 60%;
+    margin-bottom: 25%;
 }
 
 .loading {
     display: flex;
-    height: 12vh;
+    height: 90px;
     width: 20vw;
+    min-width: 280px;
     background-color: black;
+    border: 2px solid rgb(65, 65, 65);
+    border-radius: 10px;
     text-align: center;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid rgb(65, 65, 65);
-    border-radius: 10px;
-    position: absolute;
-    left: 20%;
-    bottom: 15%;
+    /* margin-top: 250px; */
+    margin-top: 50%;
 }
 
 .stranger-div img {
-    padding: 10px;
-    height: 9vh;
+    padding-left: 10px;
+    height: 75px;
 }
 
-.stranger-text {
-    font-size: 14px;
+.stranger-name {
+    font-size: 15px;
     font-weight: 600;
+    padding-right: 40px;
 }
 
 .stranger-blue {
@@ -258,9 +269,13 @@ html {
     text-align: left;
 }
 
-/* fix img and much more  */
 .stranger-gif img {
-    height: 6vh;
+    height: 50px;
+}
+
+.kids-div img {
+    /* flex-basis: 50%; */
+    width: 100%;
 }
 
 .FAQ {
@@ -338,18 +353,17 @@ html {
 }
 
 .link-grid {
-    display: flex;
-    gap: 10vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10%;
+    row-gap: 18px;
+    margin-bottom: 30px;
 }
 
-.link-grid ul {
+.link-grid div {
     list-style-type: none;
-}
-
-.link-grid ul li {
     color: rgb(180, 180, 180);
     text-decoration: underline;
-    padding-bottom: 20px;
     cursor: pointer;
 }
 
@@ -365,19 +379,25 @@ html {
 }
 
 @media screen and (max-width: 1280px) {
-    .card {
+    .logo img {
+        margin-left: 2vw;
+    }
+
+    .navbutton {
+        margin-right: 3vw;
+    }
+
+    .card,
+    .FAQ,
+    .feet {
         width: 95%;
     }
 }
 
 @media screen and (max-width: 955px) {
-    .logo img {
-        margin-left: 4vw;
-        width: 90px;
-    }
 
-    .navbutton {
-        margin-right: 4vw;
+    .logo img {
+        width: 90px;
     }
 
     .home {
@@ -408,14 +428,33 @@ html {
     }
 
     .card {
-        /* height: 75vw; */
         flex-direction: column;
         text-align: center;
-        margin-top: 40px;
+        margin-top: 30px;
+    }
+
+    .card-text {
+        flex-basis: auto;
     }
 
     .card-desc {
         font-size: 18px;
+    }
+
+    .link-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .qtext {
+        font-size: 18px;
+    }
+
+    .qross {
+        transform: scale(1);
+    }
+
+    .feet {
+        margin: 20px auto;
     }
 }
 
@@ -443,7 +482,7 @@ html {
     }
 
     .email-box input {
-        width: 80vw;
+        width: 90%;
         height: 45px;
         margin-bottom: 15px;
     }
@@ -458,4 +497,7 @@ html {
         padding-right: 0;
     }
 
+    .card {
+        height: 80vh;
+    }
 }
