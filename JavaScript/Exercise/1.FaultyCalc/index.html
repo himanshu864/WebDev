@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faulty Calculator</title>
+</head>
+
+<body>
+    <!-- <p>1. Takes two numbers from user</p>
+    <p>1. Perform the follow wrong operations only 10% of times</p>
+    <div class="opr">+ : - </div>
+    <div class="opr">* : +</div>
+    <div class="opr">- : /</div>
+    <div class="opr">/ : **</div> -->
+
+    <script>
+
+        alert("Welcome to Faulty Calculator!");
+
+        let a = parseFloat(prompt("Enter a: "));
+        let b = parseFloat(prompt("Enter b: "));
+
+        const operations = ["+", "-", "*", "/"];
+
+        while (true) {
+            let opr = prompt("Enter a valid operation (+, -, *, /): ");
+
+            if (!operations.includes(opr)) {
+                alert("Invalid operation.");
+                break;
+            }
+
+            if (Math.random() < 0.1)
+                opr = { "+": "-", "-": "/", "*": "+", "/": "**" }[opr];
+
+            alert(`Result: ${eval(a + opr + b)}`);
+        }
+
+        // alert("Welcome to Faulty Calculator!");
+        // let a = prompt("Enter a: ");
+        // let b = prompt("Enter b: ");
+
+        // let fault = {
+        //     "+": "-",
+        //     "*": "+",
+        //     "-": "/",
+        //     "/": "**"
+        // }
+
+        // while (true) {
+        //     let opr = prompt("Enter Valid Operation: ");
+
+        //     let flag = true;
+        //     for (const key in fault) {
+        //         if (key == opr)
+        //             flag = false;
+        //     }
+        //     if (flag) {
+        //         alert("Invalid Operation...");
+        //         break;
+        //     }
+
+        //     let r = Math.random();
+        //     if (r < 0.1)
+        //         opr = fault[opr];
+        //     alert(`Result: ${eval(`${a} ${opr} ${b}`)}`);
+        // }
+    </script>
+</body>
+
+</html>
