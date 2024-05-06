@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .batman {
+            background-color: darkslateblue;
+            color: yellow;
+        }
+
+        .robin {
+            background-color: rgb(60, 60, 60);
+            color: white;
+        }
+
+        #push {
+            /* background-color: whitesmoke; */
+            border: none;
+            width: 140px;
+            height: 50px;
+            border-radius: 50px;
+            margin: 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 0 10px 0 0;
+            transition: 0.2s;
+        }
+
+        .circle {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 10px;
+            transform: scale(0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <button id="push">
+        <div class="circle" onclick="iambatman()"></div>
+        <div class="mod-text">LIGHT MOD</div>
+    </button>
+    <script src="script.js"></script>
+</body>
+
+</html>
