@@ -5,6 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sigma Web Dev Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .complete-form {
+            display: flex;
+            flex-direction: column;
+            background-color: azure;
+        }
+
+        .onecard {
+            display: flex;
+            gap: 8px;
+            border: 2px solid black;
+        }
+
+        .img-time {
+            display: grid;
+            position: relative;
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr;
+        }
+
+        .thumbnail {
+            grid-row: 1/2;
+            grid-column: 1/2;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .time-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 20px;
+            border-radius: 5px;
+            grid-row: 1/2;
+            grid-column: 1/2;
+            background-color: rgba(0, 0, 0, 75%);
+            color: white;
+            font-weight: bolder;
+            margin: 5px;
+            z-index: 3;
+        }
+
+        .play-title {
+            font-size: 18px;
+            font-weight: bolder;
+        }
+
+        .play-desc {
+            display: flex;
+            color: grey;
+            gap: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,6 +86,50 @@
         Let's start by making a simple one Eh
     -->
 
+    <div class="complete-form">
+        <label for="vid-title">Video Title:
+            <input type="text" name="card" id="vid-title">
+        </label>
+        <label for="view-count">View Count:
+            <input type="text" name="card" id="view-count">
+        </label>
+        <label for="months-old">How many months old:
+            <input type="text" name="card" id="months-old">
+        </label>
+        <label for="time-length">Length in mm:ss :
+            <input type="text" name="card" id="time-length">
+        </label>
+        <label for="img-url">Image URL:
+            <input type="text" name="card" id="img-url">
+        </label>
+        <div>
+            <button name="card" onclick="createcard()">Create</button>
+        </div>
+    </div>
+
+    <div class="playlist">
+        <!-- 
+        <div class="onecard">
+            <div class="img-time">
+                <img src="/JavaScript/0.Exercise/7.YTPlaylistAdder/sigmaimg.webp" alt="thumbnail" class="thumbnail">
+                <div class="time-div">31:20</div>
+            </div>
+
+            <div class="play-text">
+                <div class="play-title">
+                    Installing VS Code
+                </div>
+                <ul class="play-desc">
+                    <li style="list-style-type: none;">CodeWithHarry</li>
+                    <li>727K views</li>
+                    <li>2 Months Ago</li>
+                </ul>
+            </div>
+        </div>
+    -->
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
