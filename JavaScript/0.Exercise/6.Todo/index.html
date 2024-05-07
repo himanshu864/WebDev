@@ -5,6 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <style>
+        .crossdat {
+            text-decoration: line-through;
+            list-style-type: disc;
+        }
+
+        .card-here {
+            list-style-type: circle;
+        }
+
+        .card {
+            background-color: aqua;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,9 +28,12 @@
             <input type="text" name="add-text" id="add-text" placeholder="Enter a task...">
             <button class="push" onclick="pushtask()">add</button>
         </div>
-        <div class="card-here">
-        </div>
+        <ul class="card-here">
+        </ul>
+
+        <button onclick="election()">clear</button>
     </div>
+
     <script src="script.js"></script>
 </body>
 
