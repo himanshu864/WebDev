@@ -12,16 +12,70 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
+        body {
+            position: relative;
+            background-color: black;
+        }
+
+        .main {
+            display: flex;
+            gap: 5px;
+            margin: 5px;
+        }
+
         .complete-form {
             display: flex;
             flex-direction: column;
-            background-color: azure;
+            width: 27vw;
+            /* background-color: blueviolet; */
+            background: linear-gradient(90deg, #cf67e1, #9198e5);
+            gap: 20px;
+            border: 2px solid;
+            border-radius: 10px;
+            padding: 10px;
+            height: 380px;
+        }
+
+        .form-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .pushme {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pushme button {
+            font-size: 20px;
+            background-color: orange;
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+            border: 4px black;
+            border-style: outset;
+        }
+
+        .pushme button:hover {
+            background-color: rgb(255, 183, 48);
+        }
+
+        .pushme button:active {
+            border-style: inset;
         }
 
         .onecard {
             display: flex;
             gap: 8px;
-            border: 2px solid black;
+            color: white;
+            width: 70vw;
+            border-radius: 15px;
+            margin: 10px 0;
+        }
+
+        .onecard:hover {
+            background-color: rgb(40, 39, 39);
         }
 
         .img-time {
@@ -50,7 +104,7 @@
             border-radius: 5px;
             grid-row: 1/2;
             grid-column: 1/2;
-            background-color: rgba(0, 0, 0, 75%);
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
             font-weight: bolder;
             margin: 5px;
@@ -66,6 +120,21 @@
             display: flex;
             color: grey;
             gap: 20px;
+            margin: 20px 0;
+        }
+
+        .indexing {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 2vw;
+            color: rgb(151, 151, 151);
+            font-weight: bolder;
+        }
+
+        .text-input {
+            width: 25vw;
+            font-size: 17px;
         }
     </style>
 </head>
@@ -74,61 +143,68 @@
     <!-- Create a feature that inputs details about a card and dynamically pushes it, into the playlist -->
     <!-- 
         My button who uses function() to add card to playlist
-
+        
         Enter Title of vid
         ViewCount and convert them into K, M..
         Months Old
         Length String : 31:20
         Img URL
-
+        
         Kinda Like an advanced To-do list
-
+        
         Let's start by making a simple one Eh
     -->
 
-    <div class="complete-form">
-        <label for="vid-title">Video Title:
-            <input type="text" name="card" id="vid-title">
-        </label>
-        <label for="view-count">View Count:
-            <input type="text" name="card" id="view-count">
-        </label>
-        <label for="months-old">How many months old:
-            <input type="text" name="card" id="months-old">
-        </label>
-        <label for="time-length">Length in mm:ss :
-            <input type="text" name="card" id="time-length">
-        </label>
-        <label for="img-url">Image URL:
-            <input type="text" name="card" id="img-url">
-        </label>
-        <div>
-            <button name="card" onclick="createcard()">Create</button>
-        </div>
-    </div>
-
-    <div class="playlist">
-        <!-- 
-        <div class="onecard">
-            <div class="img-time">
-                <img src="/JavaScript/0.Exercise/7.YTPlaylistAdder/sigmaimg.webp" alt="thumbnail" class="thumbnail">
-                <div class="time-div">31:20</div>
+    <section class="main">
+        <div class="complete-form">
+            <label for="vid-title">
+                <div class="form-title">Video Title:</div>
+                <input type="text" name="card" id="vid-title" class="text-input">
+            </label>
+            <label for="view-count">
+                <div class="form-title">View Count:</div>
+                <input type="text" name="card" id="view-count" class="text-input">
+            </label>
+            <label for="months-old">
+                <div class="form-title">How many months old:</div>
+                <input type="text" name="card" id="months-old" class="text-input">
+            </label>
+            <label for="time-length">
+                <div class="form-title">Length in mm:ss:</div>
+                <input type="text" name="card" id="time-length" class="text-input">
+            </label>
+            <label for="img-url">
+                <div class="form-title">Image URL:</div>
+                <input type="text" name="card" id="img-url" class="text-input" placeholder="Optional">
+            </label>
+            <div class="pushme">
+                <button name="card" onclick="createcard()">Create</button>
             </div>
+        </div>
 
-            <div class="play-text">
-                <div class="play-title">
-                    Installing VS Code
+        <div class="playlist">
+            <!-- <div class="onecard">
+                <div class="indexing">1</div>
+                <div class="img-time">
+                    <img src="/JavaScript/0.Exercise/7.YTPlaylistAdder/sigmaimg.webp" alt="thumbnail" class="thumbnail">
+                    <div class="time-div">31:20</div>
                 </div>
-                <ul class="play-desc">
-                    <li style="list-style-type: none;">CodeWithHarry</li>
-                    <li>727K views</li>
-                    <li>2 Months Ago</li>
-                </ul>
-            </div>
-        </div>
-    -->
-    </div>
 
+                <div class="play-text">
+                    <div class="play-title">
+                        Installing VS Code
+                    </div>
+                    <ul class="play-desc">
+                        <li style="list-style-type: none;">CodeWithHarry</li>
+                        <li>727K views</li>
+                        <li>2 Months Ago</li>
+                    </ul>
+                </div>
+            </div> -->
+        </div>
+
+
+    </section>
     <script src="script.js"></script>
 </body>
 

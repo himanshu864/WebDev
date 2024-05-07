@@ -6,10 +6,58 @@ let months = document.getElementById("months-old");
 let time = document.getElementById("time-length");
 let url = document.getElementById("img-url");
 
+var index = 1;
+
 function createcard() {
-    if (title.value == "" || views.value == "" || months.value == "" || time.value == "" || url.value == "")
-        alert("Fill all blocks");
+    if (title.value == "" || views.value == "" || months.value == "" || time.value == "")
+        alert("All boxes are Required!");
     else {
+        let x = parseInt(views.value);
+        if (x < 1000)
+            x = x;
+        else if (x >= 1000 && x < 1000000)
+            x = Math.floor(x / 1000) + "K";
+        else
+            x = Math.floor(x / 1000000) + "M";
+
+        let xm = parseInt(months.value);
+        if (xm < 2)
+            xm = xm + " Month";
+        else
+            xm = xm + " Months";
+
+        if (url.value == "")
+            url.value = "https://i.ytimg.com/vi/tVzUXW6siu0/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLACwWOixJVrKLFindK92kYMgTcQbw"
+        let copyHTML = `
+        <div class="onecard">
+        <div class="indexing">${index++}</div>
+        <div class="img-time">
+        <img src=${url.value} class="thumbnail">
+                <div class="time-div">${time.value}</div>
+            </div>
+
+            <div class="play-text">
+                <div class="play-title">${title.value}</div>
+                <ul class="play-desc">
+                    <li style="list-style-type: none;">CodeWithHarry</li>
+                    <li>${x} Views</li>
+                    <li>${xm} Ago</li>
+                </ul>
+            </div>
+        </div>`
+            ;
+
+        here.innerHTML = here.innerHTML + copyHTML;
+
+        /*
+        title.value = "";
+        views.value = "";
+        months.value = "";
+        time.value = "";
+        url.value = "";
+
+        // Created Dynamically using Javascript Dom, lot of typos and confusion. But great learning and dopamine
+
         let one = document.createElement("div");
         one.className = "onecard";
         here.append(one);
@@ -64,16 +112,7 @@ function createcard() {
             lmonth.innerText = `${months.value} Months Ago`;
 
         pdesc.append(lmonth);
+        */
 
-        title.value = "";
-        views.value = "";
-        months.value = "";
-        time.value = "";
-        url.value = "";
     }
 }
-
-
-/*
-/JavaScript/0.Exercise/7.YTPlaylistAdder/sigmaimg.webp
-*/ 
