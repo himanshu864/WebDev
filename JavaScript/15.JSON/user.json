@@ -1,0 +1,20 @@
+{
+    "products": [
+        {
+            "name": "bike",
+            "type": ["electric", "vehicle"]
+        },
+        {
+            "name": "car",
+            "type": "vehicle"
+        },
+        {
+            "name": "kettle",
+            "type": "electric"
+        },
+        {
+            "name": "apple",
+            "type": "food"
+        }
+    ]
+}
