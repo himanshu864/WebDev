@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Toc Toe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: thistle;
+        }
+
+        .everything {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .heading {
+            color: white;
+            font-size: 4rem;
+            text-align: center;
+        }
+
+        .game-grid {
+            display: grid;
+            /* idk responsive */
+            grid-template-rows: repeat(3, 100px);
+            grid-template-columns: repeat(3, 100px);
+            gap: 5px;
+        }
+
+        .tile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            transition: 50ms;
+            border: 2px solid purple;
+            font-size: 80px;
+        }
+
+        .tile:hover {
+            background-color: violet;
+            /* transform: scale(1.05); */
+        }
+
+        .won {
+            background-color: blueviolet;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="everything">
+        <h1 class="heading">TIC TAC TOE</h1>
+        <div class="game-grid">
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+        </div>
+        <div class="score"></div>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
