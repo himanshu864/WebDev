@@ -25,19 +25,28 @@ document.addEventListener("keydown", (e) => {
     }
 })
 
+// Capture
+document.querySelector(".child").addEventListener("click", () => {
+    alert("Capture - Child was clicked!");
+}, { capture: true });
+
+document.querySelector(".childContainer").addEventListener("click", (e) => {
+    alert("Capture - childContainer was clicked!");
+}, { capture: true });
+
 // Bubbling
 document.querySelector(".child").addEventListener("click", () => {
-    alert("Child was clicked!");
-})
+    alert("Bubble - Child was clicked!");
+});
 
 document.querySelector(".childContainer").addEventListener("click", (e) => {
     e.stopPropagation();
-    alert("childContainer was clicked!");
-})
+    alert("Bubble - childContainer was clicked!");
+});
 
 document.querySelector(".container").addEventListener("click", () => {
-    alert("Container was clicked!");
-})
+    alert("Bubble - Container was clicked!");
+});
 
 // Interval
 function getRandomColor() {
@@ -50,3 +59,20 @@ function getRandomColor() {
 let lights = setInterval(() => {
     document.querySelector(".disco").style.backgroundColor = getRandomColor();
 }, 100);
+
+// Globally console yo to divs
+function addGlobalEventListener(type, selector, callback) {
+    document.addEventListener(type, e => {
+        if (e.target.matches(selector))
+            callback(e);
+    });
+};
+
+addGlobalEventListener("click", "div", () => console.log("yo div"));
+
+// creating div dom
+const created = document.createElement("div");
+created.style.width = "100px";
+created.style.height = "100px";
+created.style.backgroundColor = "green";
+document.body.append(created);
