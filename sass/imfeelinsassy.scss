@@ -1,0 +1,22 @@
+@import "./alsosassy";
+
+@mixin flexCenter($bgclr) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bgclr;
+}
+
+$flag: red;
+
+h1 {
+  @include flexCenter(aqua);
+
+  p {
+    color: $flag;
+  }
+}
+
+p {
+  background-color: antiquewhite;
+}
