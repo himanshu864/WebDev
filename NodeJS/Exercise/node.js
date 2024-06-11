@@ -1,4 +1,4 @@
-import path from "path";
+import path, { extname } from "path";
 import fs from "fs";
 import promises from "fs/promises";
 
@@ -18,3 +18,8 @@ if (!fs.existsSync(folderPath))
 // to copy file from parent to organized folder
 await promises.copyFile(root + newFile, folderPath + newFile);
 
+// read content of a directory
+const files = await promises.readdir(root + "/Clutter");
+for (const file of files) {
+    console.log(extname(file));
+}
