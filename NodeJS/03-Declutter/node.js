@@ -2,7 +2,7 @@ import path, { extname } from "path";
 import fs from "fs";
 import promises from "fs/promises";
 
-const root = "./NodeJS/Exercise";
+const root = "./NodeJS/03-Declutter";
 const newFile = "/logs.txt";
 
 // create file in root directory

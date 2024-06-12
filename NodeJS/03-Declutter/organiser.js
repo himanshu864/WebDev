@@ -2,7 +2,7 @@ import fs from "fs";
 import promises from "fs/promises";
 import { extname, join } from "path";
 
-const root = "./NodeJS/Exercise/";
+const root = "./NodeJS/03-Declutter/";
 const clutterDir = join(root, "Clutter");
 const sortedDir = join(root, "Sorted");
 
