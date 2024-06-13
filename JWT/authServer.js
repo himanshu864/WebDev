@@ -2,15 +2,35 @@ require('dotenv').config();
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 app.use(express.json());
 
 // to store all valid refreshTokens
 let refreshTokens = [];
 
-app.post('/login', (req, res) => {
-    // Assuming User Authentication using Node and bcrypt
+// store name and passwords
+let users = [];
+
+app.post('/login', async (req, res) => {
     const username = req.body.username;
+    const password = req.body.password;
+
+    // User Authentication using bcrypt
+    const userInfo = users.find(user => user.name === username);
+
+    if (!userInfo) {
+        // If user doesn't exist, create new
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = { name: username, password: hashedPassword };
+        users.push(newUser);
+    } else {
+        // if user exists and password doesn't match. ERROR
+        const match = await bcrypt.compare(password, userInfo.password);
+        if (!match) return res.sendStatus(403);
+    }
+
+    // creating access and refresh tokens
     const user = { name: username };
     const accessToken = generateAccessToken(user); // expires in 15sec
     const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET); // we'll manual expire this
