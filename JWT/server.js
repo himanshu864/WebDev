@@ -24,27 +24,19 @@ app.get('/posts', authenticateToken, (req, res) => {
     res.json(posts.filter(post => post.username === req.user.name));
 })
 
-app.post('/login', (req, res) => {
-    // Assuming User Authentication using Node and bcrypt
-
-    const username = req.body.username;
-    const user = { name: username };
-
-    // (string to serialize, secret key)
-    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-
-    res.json({ accesstoken: accessToken });
-})
-
+// Middleware to test token authenticity
 function authenticateToken(req, res, next) {
-    // get token, verify correct user and display user
 
+    // Get token from passed: Bearer <TOKEN> at header of postman
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
     if (!token) return res.sendStatus(401);
 
+    // verify user
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) return res.sendStatus(403);
+
+        // return authenticated user
         req.user = user;
         next();
     })
