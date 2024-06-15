@@ -23,3 +23,9 @@ const files = await promises.readdir(root + "/Clutter");
 for (const file of files) {
     console.log(extname(file));
 }
+
+// delete files
+fs.unlinkSync(root + '/temp.txt');
+
+// create directories recursively
+fs.mkdirSync(root + "/a/b/c", { recursive: true });
