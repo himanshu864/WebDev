@@ -41,15 +41,36 @@ app.route('/api/users/:id')
         // get user
         const id = Number(req.params.id);
         const user = users.find(user => user.id === id);
+        if (!user)
+            return res.json({ status: "404 : Not found" });
         return res.json(user);
     })
     .patch((req, res) => {
         // Update user
-        return res.json({ status: "pending..." });
+        const id = Number(req.params.id);
+        const updates = req.body;
+        const userIdx = users.findIndex(user => user.id === id);
+        if (userIdx === -1)
+            return res.json({ status: "Not found..." });
+
+        users[userIdx] = { ...users[userIdx], ...updates }
+        fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
+            return res.json({ status: "Success", id: users.length });
+        })
+        return res.json({ status: "Success..." });
     })
     .delete((req, res) => {
-        // delete user
-        return res.json({ status: "pending..." });
+        const id = Number(req.params.id);
+
+        const userIdx = users.findIndex(user => user.id === id);
+        if (userIdx === -1)
+            return res.json({ status: "Not found..." });
+
+        const updated = users.filter(user => user.id !== id);
+        fs.writeFile("./MOCK_DATA.json", JSON.stringify(updated), (err, data) => {
+            return res.json({ status: "Success", id: users.length });
+        })
+        return res.json({ status: "Success..." });
     })
 
 app.listen(port, () => {
