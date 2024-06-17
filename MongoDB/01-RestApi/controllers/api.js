@@ -1,11 +1,12 @@
 const User = require("../models/user");
+const asyncHandler = require("../utils/asyncHandler");
 
-const handleGetApi = async (req, res) => {
+const handleGetApi = asyncHandler(async (req, res) => {
   const user = await User.find({});
   return res.json(user);
-};
+});
 
-const handleCreateUser = async (req, res) => {
+const handleCreateUser = asyncHandler(async (req, res) => {
   const user = req.body;
   const requiredFields = [
     "first_name",
@@ -19,12 +20,8 @@ const handleCreateUser = async (req, res) => {
     if (!user[field])
       return res.status(400).json({ Error: "All fields are required!" });
 
-  try {
-    await User.create({ ...user });
-    return res.status(201).json({ status: "Successfully Created!" });
-  } catch {
-    return res.status(400).json({ Error: "Invalid Fields Format" });
-  }
-};
+  await User.create({ ...user });
+  return res.status(201).json({ status: "Successfully Created!" });
+});
 
 module.exports = { handleGetApi, handleCreateUser };

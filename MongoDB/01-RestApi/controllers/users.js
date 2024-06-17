@@ -1,6 +1,7 @@
 const User = require("../models/user");
+const asyncHandler = require("../utils/asyncHandler");
 
-const handleGetUsers = async (req, res) => {
+const handleGetUsers = asyncHandler(async (req, res) => {
   const allDbUsers = await User.find({});
   const html = `<ul>
   ${allDbUsers
@@ -8,6 +9,6 @@ const handleGetUsers = async (req, res) => {
     .join("")}
   </ul>`;
   return res.send(html);
-};
+});
 
 module.exports = { handleGetUsers };
