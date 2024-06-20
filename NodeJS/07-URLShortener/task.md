@@ -10,7 +10,7 @@ Design a URL shortener service that takes in a valid URL and returns a shortened
 
 Generates a new short URL and returns in format example.com/random-id
 
-### GET /:id
+### GET /r/:id
 
 Redirects user to Original URL
 
