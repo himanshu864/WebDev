@@ -14,7 +14,10 @@ const handleGenNewShortURL = asyncHandler(async (req, res) => {
     visitedHistory: [],
   });
 
-  return res.json({ shortID: shortID });
+  // return res.json({ shortID: shortID });
+
+  const allTheData = await URL.find({});
+  return res.render("index.ejs", { shortID: shortID, data: allTheData });
 });
 
 module.exports = { handleGenNewShortURL };

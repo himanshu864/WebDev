@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL Shortener</title>
+  </head>
+  <body>
+    <h1>URL Shortener</h1>
+
+    <% if (locals.shortID) { %>
+    <p>
+      URL Generated :
+      <a href="/r/<%=shortID%>"><%=shortID%></a>
+    </p>
+    <% } %>
+
+    <form method="POST" action="/URL">
+      <label for="url">Enter Original URL: </label>
+      <input type="text" name="url" id="url" placeholder="example.com" />
+      <button type="submit">Generate</button>
+    </form>
+
+    <% if(locals.data) { %>
+    <ol>
+      <% data.forEach(function(url) { %>
+      <li>
+        <%= url.redirectURL %> - <%= url.shortID %> - <%=
+        url.visitedHistory.length %>
+      </li>
+      <% }); %>
+    </ol>
+    <% } %>
+  </body>
+</html>
