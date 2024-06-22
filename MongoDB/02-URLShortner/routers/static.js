@@ -1,10 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const URL = require("../models/urlModel.js");
+const handleStatic = require("../controllers/static");
 
-router.get("/", async (req, res) => {
-  const allTheData = await URL.find({});
-  res.render("index.ejs", { data: allTheData });
-});
+router.get("/", handleStatic);
 
 module.exports = router;
