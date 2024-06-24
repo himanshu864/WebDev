@@ -1,0 +1,145 @@
+{
+  "editor.mouseWheelZoom": true,
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.runInTerminal": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "code-runner.saveFileBeforeRun": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "ayu",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "scm.diffDecorationsGutterVisibility": "hover",
+  "scm.diffDecorations": "gutter",
+  "git.autofetch": true,
+  "editor.stickyScroll.enabled": false,
+  "php.validate.executablePath": "",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "editor.linkedEditing": true,
+  "codeium.enableCodeLens": false,
+  "workbench.editor.scrollToSwitchTabs": true,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": false,
+  "workbench.editor.editorActionsLocation": "titleBar",
+  "workbench.statusBar.visible": false,
+  "window.menuBarVisibility": "toggle",
+
+  "editor.lineNumbers": "relative",
+
+  "vim.easymotion": true,
+  "vim.enableNeovim": true,
+  "vim.incsearch": true,
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.leader": "<Space>",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["k", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "c"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // NAVIGATION
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    },
+    // switch b/w buffers
+    { "before": ["<S-h>"], "commands": [":bprevious"] },
+    { "before": ["<S-l>"], "commands": [":bnext"] },
+
+    // splits
+    // { "before": ["leader", "v"], "commands": [":vsplit"] },
+    // { "before": ["leader", "s"], "commands": [":split"] },
+
+    // panes
+    // {
+    //   "before": ["leader", "h"],
+    //   "commands": ["workbench.action.focusLeftGroup"]
+    // },
+    // {
+    //   "before": ["leader", "j"],
+    //   "commands": ["workbench.action.focusBelowGroup"]
+    // },
+    // {
+    //   "before": ["leader", "k"],
+    //   "commands": ["workbench.action.focusAboveGroup"]
+    // },
+    // {
+    //   "before": ["leader", "l"],
+    //   "commands": ["workbench.action.focusRightGroup"]
+    // },
+    // NICE TO HAVE
+    { "before": ["leader", "s"], "commands": [":w!"] },
+    { "before": ["leader", "w"], "commands": [":q!"] },
+    { "before": ["leader", "x"], "commands": [":x!"] },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    { "before": ["leader", "p"], "commands": ["workbench.action.quickOpen"] },
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    }
+  ],
+
+  "vim.visualModeKeyBindings": [
+    // Stay in visual mode while indenting
+    { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+    { "before": [">"], "commands": ["editor.action.indentLines"] },
+
+    // Move selected lines while staying in visual mode
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    }
+  ],
+  "workbench.activityBar.location": "hidden"
+}
