@@ -15,7 +15,11 @@ const handleGenNewShortURL = asyncHandler(async (req, res) => {
   });
 
   const allTheData = await URL.find({});
-  return res.render("home", { shortID: shortID, data: allTheData });
+  return res.render("home", {
+    shortID: shortID,
+    data: allTheData,
+    name: "friend",
+  });
 });
 
 module.exports = { handleGenNewShortURL };

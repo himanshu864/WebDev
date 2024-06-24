@@ -1,5 +1,5 @@
 const URL = require("../models/urlModel.js");
-const asyncHandler = require("../utils/asyncHandler");
+const asyncHandler = require("../utils/asyncHandler.js");
 
 const handleHomePage = asyncHandler(async (req, res) => {
   const allTheData = await URL.find({});

@@ -6,6 +6,8 @@
   <body>
     <h1>URL Shortener</h1>
 
+    <% if(locals.name) {%>
+    <h2>Welcome, <%= name %></h2>
     <% if (locals.shortID) { %>
     <p>
       URL Generated :
@@ -18,7 +20,6 @@
       <input type="text" name="url" id="url" placeholder="example.com" />
       <button type="submit">Generate</button>
     </form>
-
     <br />
 
     <% if(locals.data) { %>
@@ -29,7 +30,6 @@
         <th>Redirect</th>
         <th>Clicks</th>
       </thead>
-
       <tbody>
         <% data.forEach((url, index) => { %>
         <tr>
@@ -41,5 +41,12 @@
         <% }); }%>
       </tbody>
     </table>
+
+    <% }%> <% if(!locals.name) {%>
+    <form action="/login" method="GET">
+      <label for="login">Authentication Required!</label>
+      <button>Login</button>
+    </form>
+    <% }%>
   </body>
 </html>

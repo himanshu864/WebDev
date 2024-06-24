@@ -3,18 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign-up</title>
+    <title>Login</title>
   </head>
   <body>
-    <h1>Sign-Up</h1>
+    <h1>Login</h1>
+
     <% if (locals.error) { %>
-    <h4><%=error%> Try Again.</h4>
+    <h4><%= error %> Try Again.</h4>
     <% } %>
-    <form method="POST" action="/user/signup">
-      <div>
-        <label for="name">Enter Full Name: </label>
-        <input type="text" name="name" required />
-      </div>
+
+    <form action="/user/login" method="POST">
       <div>
         <label for="email">Enter Email: </label>
         <input type="text" name="email" required />
@@ -23,7 +21,13 @@
         <label for="password">Enter Password: </label>
         <input type="text" name="password" required />
       </div>
-      <button type="submit">Sign-Up</button>
+      <button type="submit">Login</button>
+    </form>
+
+    <br />
+    <form action="/signup" method="get">
+      <b>New to Short URL? </b>
+      <button>Join Now</button>
     </form>
   </body>
 </html>
