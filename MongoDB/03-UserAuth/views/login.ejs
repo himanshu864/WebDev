@@ -4,30 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <link rel="stylesheet" href="/styles/login.css" />
   </head>
   <body>
-    <h1>Login</h1>
+    <!-- <header><h1>URL Shortener</h1></header> -->
+    <main class="login-container">
+      <h1>Login</h1>
 
-    <% if (locals.error) { %>
-    <h4><%= error %> Try Again.</h4>
-    <% } %>
-
-    <form action="/user/login" method="POST">
-      <div>
-        <label for="email">Enter Email: </label>
-        <input type="text" name="email" required />
+      <% if (locals.error) { %>
+      <div class="error-message">
+        <p><%= error %> Try Again.</p>
       </div>
-      <div>
-        <label for="password">Enter Password: </label>
-        <input type="text" name="password" required />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+      <% } %>
 
-    <br />
-    <form action="/signup" method="get">
-      <b>New to Short URL? </b>
-      <button>Join Now</button>
-    </form>
+      <form action="/user/login" method="POST" class="login-form">
+        <label for="email">Enter Email:</label>
+        <input type="email" name="email" id="email" required />
+        <label for="password">Enter Password:</label>
+        <input type="password" name="password" id="password" required />
+        <button type="submit">Login</button>
+      </form>
+
+      <div class="signup-link">
+        <p>New to Short URL? <a href="/signup">Join Now</a></p>
+      </div>
+    </main>
+
+    <div></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+
+        emailInput.addEventListener("input", () => {
+          emailInput.setCustomValidity("");
+        });
+
+        passwordInput.addEventListener("input", () => {
+          passwordInput.setCustomValidity("");
+        });
+      });
+    </script>
   </body>
 </html>

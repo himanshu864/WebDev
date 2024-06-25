@@ -12,8 +12,9 @@ const connectMongoDB = require("./config/connect.js");
 connectMongoDB("mongodb://127.0.0.1:27017/short-url-auth");
 
 app.set("view engine", "ejs");
-
 app.set("views", path.resolve("./views")); // Customize views path
+
+app.use(express.static(__dirname + "/public"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

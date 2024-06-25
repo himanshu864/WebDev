@@ -1,52 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URL Shortener</title>
+    <link rel="stylesheet" href="/styles/home.css" />
   </head>
   <body>
-    <h1>URL Shortener</h1>
+    <header>
+      <h1>URL Shortener</h1>
 
-    <% if(locals.name) {%>
-    <h2>Welcome, <%= name %></h2>
-    <% if (locals.shortID) { %>
-    <p>
-      URL Generated :
-      <a href="/r/<%=shortID%>"><%=shortID%></a>
-    </p>
+      <% if (locals.name && name !== "secret123") { %>
+      <h2>Welcome, <%= name %></h2>
+      <% } %>
+    </header>
+
+    <% if (locals.name) { %>
+    <main>
+      <% if (locals.shortID) { %>
+      <div class="url-generated">
+        <p>URL Generated: <a href="/r/<%=shortID%>"><%=shortID%></a></p>
+      </div>
+      <% } %>
+
+      <form method="POST" action="/URL" class="url-form">
+        <label for="url">Enter Original URL:</label>
+        <input
+          type="text"
+          name="url"
+          id="url"
+          placeholder="https://example.com"
+          required
+        />
+        <button type="submit">Generate</button>
+      </form>
+
+      <% if (locals.data) { %>
+      <table class="url-table">
+        <thead>
+          <tr>
+            <th>S. No</th>
+            <th>ShortID</th>
+            <th>Redirect</th>
+            <th>Clicks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach((url, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><a href="/r/<%= url.shortID %>"><%= url.shortID %></a></td>
+            <td><%= url.redirectURL %></td>
+            <td><%= url.visitedHistory.length %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } %>
+    </main>
     <% } %>
 
-    <form method="POST" action="/URL">
-      <label for="url">Enter Original URL: </label>
-      <input type="text" name="url" id="url" placeholder="example.com" />
-      <button type="submit">Generate</button>
-    </form>
-    <br />
+    <footer>
+      <% if (!locals.name) { %>
+      <p>Authentication Required!</p>
+      <a href="/login" class="login-button">Login</a>
+      <% } %>
+    </footer>
 
-    <% if(locals.data) { %>
-    <table>
-      <thead>
-        <th>S. No</th>
-        <th>ShortID</th>
-        <th>Redirect</th>
-        <th>Clicks</th>
-      </thead>
-      <tbody>
-        <% data.forEach((url, index) => { %>
-        <tr>
-          <td><%=index + 1%></td>
-          <td><a href="/r/<%= url.shortID %>"><%= url.shortID %></a></td>
-          <td><%= url.redirectURL %></td>
-          <td><%= url.visitedHistory.length %></td>
-        </tr>
-        <% }); }%>
-      </tbody>
-    </table>
-
-    <% }%> <% if(!locals.name) {%>
-    <form action="/login" method="GET">
-      <label for="login">Authentication Required!</label>
-      <button>Login</button>
-    </form>
-    <% }%>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const urlInput = document.getElementById("url");
+        urlInput.addEventListener("input", () => {
+          urlInput.setCustomValidity("");
+        });
+      });
+    </script>
   </body>
 </html>

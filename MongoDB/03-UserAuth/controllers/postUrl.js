@@ -18,7 +18,7 @@ const handleGenNewShortURL = asyncHandler(async (req, res) => {
   return res.render("home", {
     shortID: shortID,
     data: allTheData,
-    name: "friend",
+    name: "secret123",
   });
 });
 

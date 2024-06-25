@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const User = require("../models/users.js");
 const URL = require("../models/urlModel.js");
 const asyncHandler = require("../utils/asyncHandler.js");
@@ -17,7 +18,8 @@ const handleUserLogin = asyncHandler(async (req, res) => {
     return res.render("login", { error: "User doesn't Exist!" });
   }
 
-  if (user.password != password) {
+  const isValid = await bcrypt.compare(password, user.password);
+  if (!isValid) {
     return res.render("login", { error: "Incorrect Password!" });
   }
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+
+    <% if (locals.error) { %>
+    <h4><%= error %> Try Again.</h4>
+    <% } %>
+
+    <form action="/user/login" method="POST">
+      <div>
+        <label for="email">Enter Email: </label>
+        <input type="text" name="email" required />
+      </div>
+      <div>
+        <label for="password">Enter Password: </label>
+        <input type="text" name="password" required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+
+    <br />
+    <form action="/signup" method="get">
+      <b>New to Short URL? </b>
+      <button>Join Now</button>
+    </form>
+  </body>
+</html>
