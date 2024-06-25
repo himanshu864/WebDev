@@ -4,51 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign-up</title>
-    <link rel="stylesheet" href="/styles/signup.css" />
+    <link rel="stylesheet" href="/styles/sign.css" />
   </head>
   <body>
-    <main class="signup-container">
-      <h1>Sign-Up</h1>
+    <header>
+      <h1>URL Shortener</h1>
+    </header>
 
-      <% if (locals.error) { %>
-      <div class="error-message">
-        <p><%= error %> Try Again.</p>
-      </div>
-      <% } %>
+    <main class="auth-container">
+      <div class="auth-box">
+        <h2>Sign-Up</h2>
 
-      <form method="POST" action="/user/signup" class="signup-form">
-        <label for="name">Enter Full Name:</label>
-        <input type="text" name="name" id="name" required />
-        <label for="email">Enter Email:</label>
-        <input type="email" name="email" id="email" required />
-        <label for="password">Enter Password:</label>
-        <input type="password" name="password" id="password" required />
-        <button type="submit">Sign-Up</button>
-      </form>
+        <% if (locals.error) { %>
+        <div class="error-message">
+          <p><%= error %> Try Again.</p>
+        </div>
+        <% } %>
 
-      <div class="login-link">
-        <p>Already Existing? <a href="/login">Log In</a></p>
+        <form action="/user/signup" method="POST" class="auth-form">
+          <label for="name">Enter Full Name:</label>
+          <input type="text" name="name" id="name" required />
+          <label for="email">Enter Email:</label>
+          <input type="email" name="email" id="email" required />
+          <label for="password">Enter Password:</label>
+          <input type="password" name="password" id="password" required />
+          <button type="submit" class="btn-primary">Sign-Up</button>
+        </form>
+        <div class="sign-link">
+          <p>Already Existing? <a href="/login">Log In</a></p>
+        </div>
       </div>
     </main>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const nameInput = document.getElementById("name");
-        const emailInput = document.getElementById("email");
-        const passwordInput = document.getElementById("password");
-
-        nameInput.addEventListener("input", () => {
-          nameInput.setCustomValidity("");
-        });
-
-        emailInput.addEventListener("input", () => {
-          emailInput.setCustomValidity("");
-        });
-
-        passwordInput.addEventListener("input", () => {
-          passwordInput.setCustomValidity("");
-        });
-      });
-    </script>
+    <script src="/scripts/auth.js"></script>
   </body>
 </html>

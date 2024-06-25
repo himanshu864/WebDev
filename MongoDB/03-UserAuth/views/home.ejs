@@ -9,7 +9,6 @@
   <body>
     <header>
       <h1>URL Shortener</h1>
-
       <% if (locals.name && name !== "secret123") { %>
       <h2>Welcome, <%= name %></h2>
       <% } %>
@@ -19,7 +18,7 @@
     <main>
       <% if (locals.shortID) { %>
       <div class="url-generated">
-        <p>URL Generated: <a href="/r/<%=shortID%>"><%=shortID%></a></p>
+        <p>URL Generated: <a href="/r/<%= shortID %>"><%= shortID %></a></p>
       </div>
       <% } %>
 
@@ -32,7 +31,7 @@
           placeholder="https://example.com"
           required
         />
-        <button type="submit">Generate</button>
+        <button type="submit" class="btn-primary">Generate</button>
       </form>
 
       <% if (locals.data) { %>
@@ -58,22 +57,13 @@
       </table>
       <% } %>
     </main>
+    <% } else { %>
+    <footer>
+      <p>Authentication Required!</p>
+      <a href="/login" class="btn-primary">Login</a>
+    </footer>
     <% } %>
 
-    <footer>
-      <% if (!locals.name) { %>
-      <p>Authentication Required!</p>
-      <a href="/login" class="login-button">Login</a>
-      <% } %>
-    </footer>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const urlInput = document.getElementById("url");
-        urlInput.addEventListener("input", () => {
-          urlInput.setCustomValidity("");
-        });
-      });
-    </script>
+    <script src="/scripts/auth.js"></script>
   </body>
 </html>

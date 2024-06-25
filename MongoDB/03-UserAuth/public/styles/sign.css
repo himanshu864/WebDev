@@ -1,14 +1,40 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+body,
+html {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #f4f4f9;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
   margin: 0;
 }
 
-.signup-container {
+header {
+  position: absolute;
+  top: 0;
+  background-color: #4caf50;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: white;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.auth-box {
   background: white;
   padding: 20px;
   border-radius: 5px;
@@ -16,28 +42,28 @@ body {
   width: 300px;
 }
 
-h1 {
+.auth-box h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.signup-form {
+.auth-form {
   display: flex;
   flex-direction: column;
 }
 
-.signup-form label {
+.auth-form label {
   margin: 10px 0 5px;
 }
 
-.signup-form input {
+.auth-form input {
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
-.signup-form button {
+.btn-primary {
   background-color: #4caf50;
   color: white;
   padding: 10px;
@@ -46,21 +72,21 @@ h1 {
   cursor: pointer;
 }
 
-.signup-form button:hover {
+.btn-primary:hover {
   background-color: #45a049;
 }
 
-.login-link {
+.sign-link {
   text-align: center;
   margin-top: 10px;
 }
 
-.login-link a {
+.sign-link a {
   color: #4caf50;
   text-decoration: none;
 }
 
-.login-link a:hover {
+.sign-link a:hover {
   text-decoration: underline;
 }
 
