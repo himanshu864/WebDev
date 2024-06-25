@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-up</title>
+    <link rel="stylesheet" href="/styles/sign.css" />
+  </head>
+  <body>
+    <header>
+      <h1>URL Shortener</h1>
+    </header>
+
+    <main class="auth-container">
+      <div class="auth-box">
+        <h2>Sign-Up</h2>
+
+        <% if (locals.error) { %>
+        <div class="error-message">
+          <p><%= error %> Try Again.</p>
+        </div>
+        <% } %>
+
+        <form action="/user/signup" method="POST" class="auth-form">
+          <label for="name">Enter Full Name:</label>
+          <input type="text" name="name" id="name" required />
+          <label for="email">Enter Email:</label>
+          <input type="email" name="email" id="email" required />
+          <label for="password">Enter Password:</label>
+          <input type="password" name="password" id="password" required />
+          <button type="submit" class="btn-primary">Sign-Up</button>
+        </form>
+        <div class="sign-link">
+          <p>Already Existing? <a href="/login">Log In</a></p>
+        </div>
+      </div>
+    </main>
+
+    <script src="/scripts/auth.js"></script>
+  </body>
+</html>

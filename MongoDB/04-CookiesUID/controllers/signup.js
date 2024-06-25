@@ -1,8 +1,12 @@
+const bcrypt = require("bcrypt");
+const { v4: uuidv4 } = require("uuid");
+
 const User = require("../models/users.js");
 const URL = require("../models/urlModel.js");
-const bcrypt = require("bcrypt");
+
 const asyncHandler = require("../utils/asyncHandler.js");
 const { isEmail } = require("../utils/verifyEmail.js");
+const { setUser } = require("../utils/hashmap.js");
 
 const handleUserSignup = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
@@ -17,10 +21,19 @@ const handleUserSignup = asyncHandler(async (req, res) => {
 
   // encrypt password and create User
   const hashedPassword = await bcrypt.hash(password, 10);
-  await User.create({ name, email: okEmail, password: hashedPassword });
+  const newUser = await User.create({
+    name,
+    email: okEmail,
+    password: hashedPassword,
+  });
 
-  const allTheData = await URL.find({});
-  return res.render("home", { data: allTheData, name });
+  // Generate sessionId and pass cookie
+  const sessionId = uuidv4();
+  setUser(sessionId, newUser);
+  res.cookie("uid", sessionId);
+
+  const data = await URL.find({ createdBy: newUser._id });
+  return res.render("home", { data, name });
 });
 
 module.exports = { handleUserSignup };
