@@ -1,0 +1,126 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header h2 {
+  margin: 10px 0 0;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.url-generated {
+  margin-bottom: 20px;
+}
+
+.url-generated p {
+  font-size: 1.1em;
+}
+
+.url-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.url-form label {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.url-form input[type="text"] {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #45a049;
+}
+
+.url-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.url-table th,
+.url-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.url-table th {
+  background-color: #4caf50;
+  color: white;
+}
+
+.url-table td a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+.url-table td a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+footer p {
+  margin-bottom: 10px;
+}
+
+footer .btn-primary {
+  display: inline-block;
+}
