@@ -1,4 +1,4 @@
-const { getUser } = require("../utils/hashmap.js");
+const { getUser } = require("../utils/tokenizer.js");
 
 async function restrictUnauthenticated(req, res, next) {
   const token = req.cookies?.token;

@@ -1,11 +1,10 @@
 const bcrypt = require("bcrypt");
 
 const User = require("../models/users.js");
-const URL = require("../models/urlModel.js");
 
 const asyncHandler = require("../utils/asyncHandler.js");
 const { isEmail } = require("../utils/verifyEmail.js");
-const { setUser } = require("../utils/hashmap.js");
+const { setUser } = require("../utils/tokenizer.js");
 
 const handleUserLogin = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -24,8 +23,7 @@ const handleUserLogin = asyncHandler(async (req, res) => {
   const token = setUser(user);
   res.cookie("token", token);
 
-  const data = await URL.find({ createdBy: user._id });
-  return res.render("home", { data, name: user.name });
+  return res.redirect("/home");
 });
 
 module.exports = { handleUserLogin };

@@ -13,11 +13,10 @@ function setUser(user) {
 }
 
 function getUser(token) {
+  // verifies token and returns decoded user
   try {
-    // verify token and return decoded user
     return jwt.verify(token, secret);
   } catch {
-    // else falsy
     return null;
   }
 }
