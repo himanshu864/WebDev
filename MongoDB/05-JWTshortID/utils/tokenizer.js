@@ -8,6 +8,7 @@ function setUser(user) {
     _id: user._id,
     email: user.email,
     name: user.name,
+    role: user.role,
   };
   return jwt.sign(payload, secret, { expiresIn: "1h" });
 }

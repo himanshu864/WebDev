@@ -15,8 +15,7 @@ const handleGenNewShortURL = asyncHandler(async (req, res) => {
     createdBy: req.user._id,
   });
 
-  const data = await URL.find({ createdBy: req.user._id });
-  return res.render("home", { shortID, data, name: req.user.name });
+  return res.redirect("/home");
 });
 
 module.exports = { handleGenNewShortURL };
