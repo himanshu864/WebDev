@@ -19,10 +19,16 @@ const handleUserSignup = asyncHandler(async (req, res) => {
 
   // encrypt password and create User
   const hashedPassword = await bcrypt.hash(password, 10);
+
+  // if api is called by an admin, authenticate, authorize and then create new admin
+  let role = "NORMAL";
+  if (req.query.role == "admin") role = "ADMIN";
+
   const newUser = await User.create({
     name,
     email: okEmail,
     password: hashedPassword,
+    role,
   });
 
   // Generate token and send cookie

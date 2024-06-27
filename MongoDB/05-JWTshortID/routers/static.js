@@ -9,12 +9,7 @@ router.get(
   "/home",
   restrictUnauthenticated,
   asyncHandler(async (req, res) => {
-    let data;
-    if (req.user.role == "ADMIN") {
-      data = await URL.find({});
-    } else {
-      data = await URL.find({ createdBy: req.user._id });
-    }
+    const data = await URL.find({ createdBy: req.user._id });
     res.render("home", { name: req.user.name, data });
   })
 );

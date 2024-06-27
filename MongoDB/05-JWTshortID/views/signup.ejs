@@ -13,15 +13,21 @@
 
     <main class="auth-container">
       <div class="auth-box">
+        <% if (locals.admin) { %>
+        <h2>Admin's Portal</h2>
+        <% } else { %>
         <h2>Sign-Up</h2>
-
-        <% if (locals.error) { %>
+        <% } %> <% if (locals.error) { %>
         <div class="error-message">
           <p><%= error %> Try Again.</p>
         </div>
         <% } %>
 
+        <% if (locals.admin) { %>
+        <form action="/user/signup/?role=admin" method="POST" class="auth-form">
+        <% } else { %>
         <form action="/user/signup" method="POST" class="auth-form">
+        <% } %>
           <label for="name">Enter Full Name:</label>
           <input type="text" name="name" id="name" required />
           <label for="email">Enter Email:</label>

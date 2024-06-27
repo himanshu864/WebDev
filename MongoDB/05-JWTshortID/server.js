@@ -5,12 +5,16 @@ const urlRouter = require("./routers/url.js");
 const idRouter = require("./routers/id.js");
 const staticRouter = require("./routers/static.js");
 const userRouter = require("./routers/user.js");
+const adminRouter = require("./routers/admin.js");
 
 const cookieParser = require("cookie-parser");
 const connectMongoDB = require("./config/connect.js");
 connectMongoDB("mongodb://127.0.0.1:27017/short-url-auth");
 
-const { restrictUnauthenticated } = require("./middlewares/unauth.js");
+const {
+  restrictUnauthenticated,
+  restrictUnauthorized,
+} = require("./middlewares/unauth.js");
 
 app.set("view engine", "ejs");
 
@@ -23,6 +27,7 @@ app.use("/URL", restrictUnauthenticated, urlRouter); // Generate ShortURL
 app.use("/r", idRouter); // RirectURL
 app.use("/user", userRouter); // User Authentication
 app.use("/", staticRouter); // Server Static Files
+app.use("/admin", restrictUnauthenticated, restrictUnauthorized, adminRouter);
 
 app.use((err, req, res, next) => res.status(500).json({ error: err.message }));
 app.listen(3000);
