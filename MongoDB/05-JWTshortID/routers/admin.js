@@ -3,12 +3,9 @@ const router = express.Router();
 const URL = require("../models/urlModel.js");
 const asyncHandler = require("../utils/asyncHandler.js");
 
-router.get(
-  "/signup",
-  asyncHandler(async (req, res) => {
-    res.render("signup", { admin: "ADMIN" });
-  })
-);
+router.get("/signup", (req, res) => {
+  res.render("signup", { admin: true });
+});
 
 router.get(
   "/",

@@ -17,7 +17,7 @@ function restrictUnauthorized(req, res, next) {
 }
 
 function restrictAdminSignup(req, res, next) {
-  if (req.query.role == "admin") {
+  if (req.body.role == "admin") {
     restrictUnauthenticated(req, res, function () {
       restrictUnauthorized(req, res, next);
     });

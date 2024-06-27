@@ -63,6 +63,14 @@ header {
   border-radius: 5px;
 }
 
+.auth-form select {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
 .btn-primary {
   background-color: #4caf50;
   color: white;

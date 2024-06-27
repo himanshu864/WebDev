@@ -23,17 +23,22 @@
         </div>
         <% } %>
 
-        <% if (locals.admin) { %>
-        <form action="/user/signup/?role=admin" method="POST" class="auth-form">
-        <% } else { %>
         <form action="/user/signup" method="POST" class="auth-form">
-        <% } %>
           <label for="name">Enter Full Name:</label>
           <input type="text" name="name" id="name" required />
           <label for="email">Enter Email:</label>
           <input type="email" name="email" id="email" required />
           <label for="password">Enter Password:</label>
           <input type="password" name="password" id="password" required />
+
+          <% if (locals.admin) { %>
+          <label for="role">Select your role : </label>
+          <select name="role" id="role">
+            <option value="normal">Normal</option>
+            <option value="admin">Admin</option>
+          </select>
+          <% } %>
+
           <button type="submit" class="btn-primary">Sign-Up</button>
         </form>
         <div class="sign-link">
