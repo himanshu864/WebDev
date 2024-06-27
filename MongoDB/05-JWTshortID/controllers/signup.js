@@ -35,7 +35,7 @@ const handleUserSignup = asyncHandler(async (req, res) => {
   const token = setUser(newUser);
   res.cookie("token", token);
 
-  return res.redirect("/home");
+  return res.redirect("/");
 });
 
 module.exports = { handleUserSignup };

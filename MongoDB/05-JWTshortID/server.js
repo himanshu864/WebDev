@@ -26,8 +26,8 @@ app.use(cookieParser());
 app.use("/URL", restrictUnauthenticated, urlRouter); // Generate ShortURL
 app.use("/r", idRouter); // RirectURL
 app.use("/user", userRouter); // User Authentication
+app.use("/admin", restrictUnauthenticated, restrictUnauthorized, adminRouter); // Admin Access
 app.use("/", staticRouter); // Server Static Files
-app.use("/admin", restrictUnauthenticated, restrictUnauthorized, adminRouter);
 
 app.use((err, req, res, next) => res.status(500).json({ error: err.message }));
 app.listen(3000);

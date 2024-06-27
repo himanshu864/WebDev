@@ -9,7 +9,7 @@ const handleRedirectURL = asyncHandler(async (req, res) => {
       $push: { visitedHistory: { timestamp: Date.now() } },
     }
   );
-  res.redirect("https://" + entry.redirectURL);
+  res.redirect(entry.redirectURL);
 });
 
 module.exports = { handleRedirectURL };
