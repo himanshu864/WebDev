@@ -6,7 +6,7 @@ const asyncHandler = require("../utils/asyncHandler");
 
 const handleGenNewShortURL = asyncHandler(async (req, res) => {
   const body = req.body.url;
-  const data = await URL.find({ createdBy: req.user._id });
+  let data = await URL.find({ createdBy: req.user._id });
 
   if (!validURL.isHttpsUri(body))
     return res.render("home", {
@@ -23,6 +23,7 @@ const handleGenNewShortURL = asyncHandler(async (req, res) => {
     createdBy: req.user._id,
   });
 
+  data = await URL.find({ createdBy: req.user._id });
   return res.render("home", { name: req.user.name, data, shortID });
 });
 

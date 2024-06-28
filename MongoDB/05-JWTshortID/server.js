@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 
@@ -9,7 +10,9 @@ const adminRouter = require("./routers/admin.js");
 
 const cookieParser = require("cookie-parser");
 const connectMongoDB = require("./config/connect.js");
-connectMongoDB("mongodb://127.0.0.1:27017/short-url-auth");
+
+const uri = process.env.URI;
+connectMongoDB(uri);
 
 const {
   restrictUnauthenticated,
@@ -30,4 +33,6 @@ app.use("/admin", restrictUnauthenticated, restrictUnauthorized, adminRouter); /
 app.use("/", staticRouter); // Server Static Files
 
 app.use((err, req, res, next) => res.status(500).json({ error: err.message }));
-app.listen(3000);
+
+const port = process.env.PORT || 3000;
+app.listen(port);
