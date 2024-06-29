@@ -1,1 +1,9 @@
+<%- include('head') %>
+
 <h1>Hi, <%= user %></h1>
+
+<form action="/logout" method="POST">
+  <button>logout</button>
+</form>
+
+<%- include('foot') %>
