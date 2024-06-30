@@ -1,0 +1,28 @@
+<%- include('head') %>
+
+<h1>Login</h1>
+
+<% if (messages.error) { %>
+<div class="error"><%= messages.error %></div>
+<% } %>
+
+<!-- Runnaway as fast as you can! -->
+
+<% if (locals.msg) { %> <%- msg %> <% } %>
+
+<form action="/login" method="POST">
+  <div>
+    <label for="email">Email - ID:</label>
+    <input type="text" id="email" name="email" required />
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="text" id="password" name="password" required />
+  </div>
+  <div>
+    <button type="submit">Login</button>
+  </div>
+</form>
+<a href="/register">Register</a>
+
+<%- include('foot') %>
