@@ -1,0 +1,41 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  background-color: crimson;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a:first-child {
+  font-size: 20px;
+  flex-grow: 1;
+  color: black;
+  text-align: center;
+}
+
+section {
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quantity {
+  width: 50px;
+}
+
+button {
+  margin: 10px;
+  padding: 2px 20px;
+}

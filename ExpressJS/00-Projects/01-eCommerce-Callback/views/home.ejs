@@ -3,44 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>lamazon</title>
-    <style>
-      * {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-
-      body {
-        padding: 20px;
-      }
-
-      section {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 40px;
-      }
-
-      h1 {
-        text-align: center;
-      }
-
-      .item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      button {
-        margin: 10px;
-      }
-    </style>
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="/style/home.css" />
   </head>
   <body>
-    <h1>E-Commerce Website</h1>
+    <nav>
+      <a href="/">
+        <h1>E-Commerce Website</h1>
+      </a>
+      <a href="/cart">
+        <img src="/images/cart.png" alt="cart" />
+      </a>
+    </nav>
 
     <section>
       <% items.forEach(item => { %>
       <div class="item">
-        <img src="<%=item.image %>" alt="<%= item.alt%>" height="300px" />
+        <img src="<%=item.image %>" alt="<%= item.alt%>" height="200px" />
         <p><%= item.name %></p>
         <b><span class="price"><%= item.price %></span></b>
 
@@ -48,81 +27,23 @@
           <input type="hidden" name="name" value="<%= item.name %>" />
           <input type="hidden" name="price" value="<%= item.price %>" />
           <input type="hidden" name="image" value="<%= item.image %>" />
-          <button type="submit">Buy</button>
+          <input type="number" name="quantity" class="quantity" value="0" />
+          <button type="submit">Add</button>
         </form>
       </div>
       <% }) %>
     </section>
+
+    <div>
+      <form action="/addToCart" method="post">
+        <button id="plus" type="submit">+</button>
+      </form>
+      <%= number %>
+      <button id="minus">-</button>
+    </div>
   </body>
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    // Fomatting price dynamically
-    function formatPrice(price) {
-      return new Intl.NumberFormat("en-IN", {
-        style: "currency",
-        currency: "INR",
-      }).format(price);
-    }
-
-    document.querySelectorAll(".price").forEach((span) => {
-      span.innerHTML = formatPrice(span.innerHTML);
-    });
-
-    // AJAX
-    $(document).ready(function () {
-      $(".pay-form").submit(function (e) {
-        e.preventDefault();
-
-        const formData = $(this).serialize();
-
-        $.ajax({
-          url: "/createOrder",
-          type: "POST",
-          data: formData,
-          success: function (res) {
-            if (res.success) {
-              const options = {
-                key: res.key_id,
-                amount: res.amount,
-                currency: "INR",
-                name: res.product_name,
-                description: res.description,
-                image: res.image,
-                order_id: res.order_id,
-                handler: function (response) {
-                  alert("Payment Succeeded");
-                  // handle post-payment actions here
-                },
-                prefill: {
-                  contact: res.contact,
-                  name: res.name,
-                  email: res.email,
-                },
-                notes: {
-                  description: res.description,
-                },
-                theme: {
-                  color: "#2300a3",
-                },
-              };
-              var razorpayObject = new Razorpay(options);
-              razorpayObject.on("payment.failed", function (response) {
-                alert("Payment Failed");
-                console.log(response.error);
-              });
-              razorpayObject.open();
-            } else {
-              alert(res.msg);
-            }
-          },
-          error: function (err) {
-            console.error("Error during order creation:", err);
-            alert("Order creation failed. Please try again.");
-          },
-        });
-      });
-    });
-  </script>
+  <script src="/script/home.js"></script>
 </html>

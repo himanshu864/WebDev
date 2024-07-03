@@ -5,7 +5,7 @@ const instance = new Razorpay({
 });
 
 const createOrder = (req, res) => {
-  const { name, price, image } = req.body;
+  const { name, price, image, quantity } = req.body;
   const amount = price * 100;
 
   const options = {
