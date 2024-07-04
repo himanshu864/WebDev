@@ -1,15 +1,3 @@
-// Fomatting price dynamically
-function formatPrice(price) {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-  }).format(price);
-}
-
-document.querySelectorAll(".price").forEach((span) => {
-  span.innerHTML = formatPrice(span.innerHTML);
-});
-
 // AJAX - API for Razorpay Payment Gateway
 $(document).ready(function () {
   $(".pay-form").submit(function (e) {

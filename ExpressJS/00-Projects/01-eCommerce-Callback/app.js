@@ -7,8 +7,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const { createOrder } = require("./routes/order.js");
-const { addToCart } = require("./routes/addToCart.js");
+const { createOrder } = require("./routes/createOrder.js");
 
 const items = [
   {
@@ -31,18 +30,14 @@ const items = [
   },
 ];
 
-let globalNumber = 10;
-
 app.get("/", (req, res) => {
-  return res.render("home.ejs", { items, number: globalNumber });
+  return res.render("home.ejs", { items });
 });
 
 app.get("/cart", (req, res) => {
-  res.render("cart.ejs", { number: globalNumber });
+  res.render("cart.ejs");
 });
 
 app.post("/createOrder", createOrder);
-
-app.post("/addToCart", addToCart);
 
 app.listen(3000);

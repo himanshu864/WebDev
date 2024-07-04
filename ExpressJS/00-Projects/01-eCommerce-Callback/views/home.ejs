@@ -27,23 +27,27 @@
           <input type="hidden" name="name" value="<%= item.name %>" />
           <input type="hidden" name="price" value="<%= item.price %>" />
           <input type="hidden" name="image" value="<%= item.image %>" />
-          <input type="number" name="quantity" class="quantity" value="0" />
           <button type="submit">Add</button>
         </form>
       </div>
       <% }) %>
     </section>
-
-    <div>
-      <form action="/addToCart" method="post">
-        <button id="plus" type="submit">+</button>
-      </form>
-      <%= number %>
-      <button id="minus">-</button>
-    </div>
   </body>
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/script/home.js"></script>
+  <script src="script/ajaxPayGateway.js"></script>
+  <script>
+    // Fomatting price dynamically
+    function formatPrice(price) {
+      return new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+      }).format(price);
+    }
+
+    document.querySelectorAll(".price").forEach((span) => {
+      span.innerHTML = formatPrice(span.innerHTML);
+    });
+  </script>
 </html>

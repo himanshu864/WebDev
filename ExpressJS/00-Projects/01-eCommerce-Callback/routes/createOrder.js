@@ -5,7 +5,7 @@ const instance = new Razorpay({
 });
 
 const createOrder = (req, res) => {
-  const { name, price, image, quantity } = req.body;
+  const { name, price, image } = req.body;
   const amount = price * 100;
 
   const options = {
@@ -17,12 +17,14 @@ const createOrder = (req, res) => {
   // create order
   instance.orders.create(options, function (err, order) {
     if (err) {
-      return res.send(500).json({
+      console.log(err);
+      return res.send({
         success: false,
         msg: "Order creation failed",
         error: err,
       });
     }
+
     res.send({
       success: true,
       msg: "Order Created",
