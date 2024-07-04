@@ -1,11 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const app = express();
 
 app.set("view-engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 const { createOrder } = require("./routes/createOrder.js");
 
@@ -30,14 +32,23 @@ const items = [
   },
 ];
 
+let quantity = 0;
+
 app.get("/", (req, res) => {
   return res.render("home.ejs", { items });
 });
 
 app.get("/cart", (req, res) => {
-  res.render("cart.ejs");
+  res.render("cart.ejs", { quantity });
 });
 
 app.post("/createOrder", createOrder);
+
+app.post("/addToCart", (req, res) => {
+  const q = req.body.quantity;
+  quantity = Number(quantity) + Number(q);
+
+  res.redirect("/");
+});
 
 app.listen(3000);

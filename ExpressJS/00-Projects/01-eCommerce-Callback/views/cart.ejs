@@ -15,6 +15,21 @@
         <img src="/images/cart.png" alt="cart" />
       </a>
     </nav>
-    <section>Your cart is empty</section>
+    <section>
+      <% if (quantity == 0) { %> Your cart is empty <% } else { %>
+
+      <h2>You have <%=quantity%> no. of items.</h2>
+
+      <form class="pay-form">
+        <input type="hidden" name="name" value="Items" />
+        <input type="hidden" name="price" value="<%=quantity%>" />
+        <input type="hidden" name="image" value="Items" />
+        <button type="submit">Proceed to buy Items</button>
+      </form>
+      <% } %>
+    </section>
   </body>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script/ajaxPayGateway.js"></script>
 </html>
