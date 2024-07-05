@@ -32,21 +32,39 @@ const items = [
   },
 ];
 
-let quantity = 0;
-
 app.get("/", (req, res) => {
-  return res.render("home.ejs", { items });
+  return res.render("homeGPT.ejs", { items });
 });
 
 app.get("/cart", (req, res) => {
-  res.render("cart.ejs", { quantity });
+  const items = req.cookies?.cart;
+  let totalPrice = 0;
+  if (items) {
+    items.forEach((item) => {
+      totalPrice = item.price * item.quantity;
+    });
+  }
+  res.render("cartGPT.ejs", { items, totalPrice });
 });
 
 app.post("/createOrder", createOrder);
 
 app.post("/addToCart", (req, res) => {
-  const q = req.body.quantity;
-  quantity = Number(quantity) + Number(q);
+  const { name, price, image, quantity } = req.body;
+  const obj = { name, price, image, quantity };
+
+  if (req.cookies?.cart) {
+    const items = req.cookies.cart;
+    const index = items.findIndex((item) => item.name == name);
+    if (index == -1) {
+      items.push(obj);
+    } else {
+      items[index].quantity = Number(items[index].quantity) + Number(quantity);
+    }
+    res.cookie("cart", items);
+  } else {
+    res.cookie("cart", [obj]);
+  }
 
   res.redirect("/");
 });

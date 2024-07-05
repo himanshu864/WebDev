@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-commerce</title>
-    <link rel="stylesheet" href="/style/cart.css" />
-  </head>
-  <body>
-    <nav>
-      <a href="/">
-        <h1>E-Commerce Website</h1>
-      </a>
-      <a href="/cart">
-        <img src="/images/cart.png" alt="cart" />
-      </a>
-    </nav>
-    <section>
-      <% if (quantity == 0) { %> Your cart is empty <% } else { %>
 
-      <h2>You have <%=quantity%> no. of items.</h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-commerce</title>
+  <link rel="stylesheet" href="/style/cart.css" />
+</head>
 
-      <form class="pay-form">
-        <input type="hidden" name="name" value="Items" />
-        <input type="hidden" name="price" value="<%=quantity%>" />
-        <input type="hidden" name="image" value="Items" />
-        <button type="submit">Proceed to buy Items</button>
-      </form>
-      <% } %>
-    </section>
-  </body>
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="script/ajaxPayGateway.js"></script>
+<body>
+  <nav>
+    <a href="/">
+      <h1>E-Commerce Website</h1>
+    </a>
+    <a href="/cart"><img src="/images/cart.png" alt="cart" /></a>
+  </nav>
+
+  <% if (!locals.items) { %> Your cart is empty <% } else {%>
+  <section>
+    <% items.forEach(item=> { %>
+    <div class="item">
+      <img src="<%= item.image %>" alt="<%= item.alt%>" height="200px" />
+      <p><%= item.name %></p>
+      <span class="price"><%= item.price %> * <%= item.quantity%></span>
+    </div>
+    <% }) %>
+  </section>
+
+  <h1>Total Payment: <%= totalPrice %></h1>
+
+  <form class="pay-form">
+    <input type="hidden" name="name" value="Items" />
+    <input type="hidden" name="price" value="<%= totalPrice %>" />
+    <input type="hidden" name="image" value="Items" />
+    <button type="submit">Proceed to buy Items</button>
+  </form>
+  <% } %>
+</body>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="script/ajaxPayGateway.js"></script>
+
 </html>
