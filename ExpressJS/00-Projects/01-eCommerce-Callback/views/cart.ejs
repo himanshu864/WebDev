@@ -43,7 +43,8 @@
     <div class="cart-summary">
       <h2>Total Payment: <span class="total-price"><%= totalPrice %></span></h2>
       <form class="pay-form">
-        <input type="hidden" name="name" value="Cart" />
+        <input type="hidden" name="name" value="Shopping Cart" />
+        <input type="hidden" name="description" value="<%= desc %>" />
         <input type="hidden" name="price" value="<%= totalPrice %>" />
         <button type="submit" class="proceed-btn">Proceed to Buy</button>
       </form>
@@ -53,7 +54,7 @@
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="script/ajaxPayGateway.js"></script>
+  <script src="script/PaymentGateway.js"></script>
   <script>
     function formatPrice(price) {
       return new Intl.NumberFormat("en-IN", {

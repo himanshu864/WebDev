@@ -5,7 +5,7 @@ const instance = new Razorpay({
 });
 
 const createOrder = (req, res) => {
-  const { name, price, image } = req.body;
+  const { name, description, price, image } = req.body;
   const amount = price * 100;
 
   const options = {
@@ -32,7 +32,7 @@ const createOrder = (req, res) => {
       amount: amount,
       key_id: process.env.RAZORPAY_KEY_ID,
       product_name: name,
-      description: name,
+      description: description,
       image: image,
       contact: "8567345632",
       name: "Gaurav Kumar",
