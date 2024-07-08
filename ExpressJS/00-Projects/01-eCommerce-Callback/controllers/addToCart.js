@@ -10,11 +10,12 @@ const addToCart = (req, res) => {
     } else {
       items[index].quantity = Number(items[index].quantity) + Number(quantity);
     }
-    res.cookie("cart", items);
+    res.cookie("cart", items, { maxAge: 99999999 });
   } else {
-    res.cookie("cart", [obj]);
+    res.cookie("cart", [obj], { maxAge: 99999999 });
   }
 
+  if (!image) return res.redirect("/cart");
   res.redirect("/");
 };
 

@@ -109,8 +109,21 @@ main {
 
 .item-price-quantity {
   display: flex;
-  gap: 50px;
+  gap: 80px;
   margin-bottom: 10px;
+}
+
+.edit-quantity {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.edit-quantity button {
+  border: none;
+  background-color: white;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .price,

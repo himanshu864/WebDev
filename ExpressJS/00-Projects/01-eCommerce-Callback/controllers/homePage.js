@@ -1,7 +1,8 @@
 const { items } = require("../utils/items");
 
 const homePage = (req, res) => {
-  return res.render("home.ejs", { items });
+  const cartItems = req.cookies?.cart;
+  return res.render("home.ejs", { items, cartNo: cartItems?.length });
 };
 
 module.exports = { homePage };

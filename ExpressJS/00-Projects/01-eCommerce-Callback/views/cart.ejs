@@ -16,6 +16,7 @@
       <span class="title">SHOPPING CART</span>
       <a href="/cart" class="cart">
         <img src="/images/cart.png" alt="Cart" />
+        <% if (items?.length != 0) { %><%= items.length %><% } %>
       </a>
     </div>
   </nav>
@@ -33,7 +34,20 @@
           <h3><%= item.name %></h3>
           <div class="item-price-quantity">
             <p class="price"><%= item.price %></p>
-            <p class="quantity">Quantity: <%= item.quantity %></p>
+            <div class="edit-quantity">
+              Quantity:
+              <form action="/RemoveOne" method="post">
+                <input type="hidden" name="name" value="<%= item.name %>" />
+                <input type="hidden" name="quantity" value="1" />
+                <button type="submit">-</button>
+              </form>
+              <p class="quantity"><%= item.quantity %></p>
+              <form action="/addToCart" method="post">
+                <input type="hidden" name="name" value="<%= item.name %>" />
+                <input type="hidden" name="quantity" value="1" />
+                <button type="submit">+</button>
+              </form>
+            </div>
           </div>
           <p class="item-total"><%= item.price * item.quantity %></p>
         </div>
