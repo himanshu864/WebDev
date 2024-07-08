@@ -1,4 +1,3 @@
-// jQuery - JAX - API for Razorpay Payment Gateway
 $(document).ready(function () {
   $(".pay-form").submit(function (e) {
     e.preventDefault();
@@ -20,14 +19,13 @@ $(document).ready(function () {
             image: res.image,
             order_id: res.order_id,
             handler: function (response) {
-              // handle post-payment actions here
               $.ajax({
-                url: "/verifyPayment",
+                url: "/clearCart",
                 type: "POST",
                 contentType: "application/json",
                 success: function (verifyResponse) {
                   if (verifyResponse.success) {
-                    alert("Payment Successful and Verified");
+                    alert("Payment Successful and Cart Emptied");
                     window.location.href = "/";
                   } else {
                     alert("Payment Verification Failed");
@@ -58,12 +56,14 @@ $(document).ready(function () {
           });
           razorpayObject.open();
         } else {
-          alert(res.msg);
+          alert(res.message);
         }
       },
       error: function (err) {
-        console.error("Error during order creation:", err);
-        alert("Order creation failed. Please try again.");
+        const errorMessage = err.responseJSON
+          ? err.responseJSON.message
+          : "Order creation failed. Please try again.";
+        alert(errorMessage);
       },
     });
   });
