@@ -5,7 +5,7 @@ $(document).ready(function () {
     const formData = $(this).serialize();
 
     $.ajax({
-      url: "/createOrder",
+      url: "/post/createOrder",
       type: "POST",
       data: formData,
       success: function (res) {
@@ -20,7 +20,7 @@ $(document).ready(function () {
             order_id: res.order_id,
             handler: function (response) {
               $.ajax({
-                url: "/clearCart",
+                url: "/post/clearCart",
                 type: "POST",
                 contentType: "application/json",
                 success: function (verifyResponse) {

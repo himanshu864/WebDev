@@ -49,6 +49,13 @@ nav .title {
   margin-right: 100px;
 }
 
+.logout {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+}
+
 /* Main Section */
 main {
   margin: 100px 50px; /* To offset the fixed navbar */

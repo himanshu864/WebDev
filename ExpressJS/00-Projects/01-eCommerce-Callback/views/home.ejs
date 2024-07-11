@@ -14,9 +14,14 @@
     <div class="container">
       <a href="/" class="logo">E-Commerce</a>
       <span class="title">HOME PAGE</span>
+      <% if (locals.user) { %>
+      <form action="/user/logout" method="post"><button type="submit" class="logout">LogOut</button></form>
+      <% } else { %>
+      <a href="/login">Login</a>
+      <% }%>
       <a href="/cart" class="cart">
         <img src="/images/cart.png" alt="Cart" />
-        <% if (cartNo) { %><%= cartNo %><% } %>
+        <% if (locals.cartNo) { %><%= cartNo %><% } %>
       </a>
     </div>
   </nav>
@@ -31,7 +36,7 @@
           <h3><%= item.name %></h3>
           <p class="price"><%= item.price %></p>
         </div>
-        <form action="/addToCart" method="post" class="add-to-cart-form">
+        <form action="/post/addToCart" method="post" class="add-to-cart-form">
           <input type="hidden" name="name" value="<%= item.name %>" />
           <input type="hidden" name="price" value="<%= item.price %>" />
           <input type="hidden" name="image" value="<%= item.image %>" />

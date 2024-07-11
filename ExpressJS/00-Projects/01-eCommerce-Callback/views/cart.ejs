@@ -36,13 +36,13 @@
             <p class="price"><%= item.price %></p>
             <div class="edit-quantity">
               Quantity:
-              <form action="/RemoveOne" method="post">
+              <form action="/post/RemoveOne" method="post">
                 <input type="hidden" name="name" value="<%= item.name %>" />
                 <input type="hidden" name="quantity" value="1" />
                 <button type="submit">-</button>
               </form>
               <p class="quantity"><%= item.quantity %></p>
-              <form action="/addToCart" method="post">
+              <form action="/post/addToCart" method="post">
                 <input type="hidden" name="name" value="<%= item.name %>" />
                 <input type="hidden" name="quantity" value="1" />
                 <button type="submit">+</button>
