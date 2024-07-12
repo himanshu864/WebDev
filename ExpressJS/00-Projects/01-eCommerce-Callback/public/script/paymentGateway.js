@@ -56,7 +56,7 @@ $(document).ready(function () {
           });
           razorpayObject.open();
         } else {
-          alert(res.message);
+          alert(res.msg);
         }
       },
       error: function (err) {

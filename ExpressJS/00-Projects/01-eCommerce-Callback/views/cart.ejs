@@ -64,11 +64,19 @@
       </form>
     </div>
     <% } %>
+
+    <!-- Loading... -->
   </main>
+
+  <div class="loading-screen">
+    <div class="loader"></div>
+  </div>
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="script/paymentGateway.js"></script>
+
+  <!-- Format Prices only API's loaded -->
   <script>
     function formatPrice(price) {
       return new Intl.NumberFormat("en-IN", {
@@ -87,6 +95,13 @@
 
     document.querySelectorAll(".item-total").forEach(span => {
       span.innerHTML = "Item Total: " + formatPrice(span.innerHTML);
+    });
+  </script>
+
+  <!-- Removing Loading Screen once everything set -->
+  <script>
+    $(window).on("load", function() {
+      $(".loading-screen").fadeOut("fast");
     });
   </script>
 </body>
