@@ -13,14 +13,15 @@ router.post(
   })
 );
 
-router.post(
-  "/signin",
-  asyncHandler(async (req, res) => {
-    const { email, password } = req.body;
-    const user = await User.matchPassword(email, password);
-    console.log(user);
-    return res.redirect("/");
-  })
-);
+router.post("/signin", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const token = await User.matchPasswordGenToken(email, password);
+    return res.cookie("token", token).redirect("/");
+  } catch (err) {
+    return res.render("signin", { error: err });
+  }
+});
 
 module.exports = router;

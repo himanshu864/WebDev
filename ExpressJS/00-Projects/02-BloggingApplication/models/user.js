@@ -1,7 +1,6 @@
-const { Mongoose } = require("mongoose");
 const { Schema, model } = require("mongoose");
 const { createHmac, randomBytes } = require("crypto");
-const asyncHandler = require("../utils/asyncHandler.js");
+const { createTokenForUser } = require("../utils/authentication");
 
 const userSchema = new Schema(
   {
@@ -52,9 +51,9 @@ userSchema.pre("save", function (next) {
   next();
 });
 
-// !! DONT USE ASYNC HANDLER HERE. THIS GETS FUCKED UP
 //Virtual Function
-userSchema.static("matchPassword", async function (email, password) {
+// !! DONT USE ASYNC HANDLER HERE. this GETS FUCKED UP
+userSchema.static("matchPasswordGenToken", async function (email, password) {
   const user = await this.findOne({ email });
   if (!user) throw new Error("User not found!");
 
@@ -68,8 +67,8 @@ userSchema.static("matchPassword", async function (email, password) {
   if (typedPasswordHash !== hashedPassword)
     throw new Error("Incorrect password!");
 
-  // return user;
-  return { ...user.toObject(), password: undefined, salt: undefined };
+  const token = createTokenForUser(user);
+  return token;
 });
 
 const User = model("user", userSchema);
