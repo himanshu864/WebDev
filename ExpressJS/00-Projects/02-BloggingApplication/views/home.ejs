@@ -9,7 +9,7 @@
 <body>
   <%- include('./partials/nav') %>
   <div class="container mt-4">
-    <h1 class="mb-4">Hello, world!</h1>
+    <h1 class="mb-4">User</h1>
 
     <div class="card" style="width: 18rem;">
       <img src="<%=user.profileImageURL%>" class="card-img-top" alt="pfp">
@@ -17,10 +17,26 @@
         <h5 class="card-title"><%=user.fullName%></h5>
         <p class="card-text"><%=user.role%></p>
         <p class="card-text"><%=user.email%></p>
+        <a href="/blog/<%=user._id%>" class="btn btn-primary">View Blogs</a>
       </div>
     </div>
-  </div>
-  <%- include('./partials/scripts') %>
+
+    <% if (locals.blogs) { %>
+    <h1 class="mt-4 mb-4">Blogs</h1>
+
+    <div class="container mt-4">
+      <% blogs.forEach(blog => { %>
+      <div class="card" style="width: 18rem;">
+        <img src="<%=blog.coverImageURL%>" class="card-img-top" alt="coverImage">
+        <div class="card-body">
+          <h5 class="card-title"><%=blog.title%></h5>
+          <p class="card-text"><%=blog.body%></p>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <% } %>
+    <%- include('./partials/scripts') %>
 </body>
 
 </html>
