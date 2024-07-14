@@ -22,7 +22,8 @@ const userSchema = new Schema(
     },
     profileImageURL: {
       type: String,
-      default: "/images/sokka.jpg",
+      default:
+        "https://i.pinimg.com/564x/54/a4/f6/54a4f6227cafffee572ab444a9e2e223.jpg",
     },
     role: {
       type: String,

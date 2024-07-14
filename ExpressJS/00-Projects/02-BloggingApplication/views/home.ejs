@@ -8,8 +8,18 @@
 
 <body>
   <%- include('./partials/nav') %>
-  <h1>Hello, world!</h1>
+  <div class="container mt-4">
+    <h1 class="mb-4">Hello, world!</h1>
 
+    <div class="card" style="width: 18rem;">
+      <img src="<%=user.profileImageURL%>" class="card-img-top" alt="pfp">
+      <div class="card-body">
+        <h5 class="card-title"><%=user.fullName%></h5>
+        <p class="card-text"><%=user.role%></p>
+        <p class="card-text"><%=user.email%></p>
+      </div>
+    </div>
+  </div>
   <%- include('./partials/scripts') %>
 </body>
 

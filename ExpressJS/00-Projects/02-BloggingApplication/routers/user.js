@@ -8,6 +8,11 @@ router.post(
   "/signup",
   asyncHandler(async (req, res) => {
     const { fullName, email, password } = req.body;
+
+    const user = await User.find({ email });
+    if (user.length)
+      return res.render("signup", { error: "User already exists!" });
+
     await User.create({ fullName, email, password });
     return res.redirect("/");
   })
@@ -22,6 +27,11 @@ router.post("/signin", async (req, res) => {
   } catch (err) {
     return res.render("signin", { error: err });
   }
+});
+
+router.post("/signout", (req, res) => {
+  res.clearCookie("token");
+  res.redirect("/signin");
 });
 
 module.exports = router;
