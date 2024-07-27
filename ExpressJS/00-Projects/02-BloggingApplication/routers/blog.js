@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const multer = require("multer");
 const router = Router();
+const fs = require("fs");
 
 const asyncHandler = require("../utils/asyncHandler");
 
@@ -8,6 +9,8 @@ const Blog = require("../models/blog");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
+    const dest = "./public/uploads";
+    fs.mkdirSync(dest, { recursive: true });
     return cb(null, "./public/uploads");
   },
   filename: function (req, file, cb) {

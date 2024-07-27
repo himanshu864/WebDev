@@ -29,4 +29,4 @@ app.use("/", staticRouter);
 // Global Error Handler
 app.use((err, req, res, next) => res.status(500).json({ error: err.message }));
 
-app.listen(3000);
+app.listen(process.env.PORT);
