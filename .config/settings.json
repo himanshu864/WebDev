@@ -1,16 +1,17 @@
 {
+  "editor.smoothScrolling": true,
+  "editor.cursorSurroundingLines": 8,
   "editor.mouseWheelZoom": true,
   "code-runner.clearPreviousOutput": true,
   "code-runner.runInTerminal": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
   "code-runner.saveFileBeforeRun": true,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.iconTheme": "ayu",
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "j69.ejs-beautify"
   },
   "liveServer.settings.donotShowInfoMsg": true,
   "[javascript]": {
@@ -22,7 +23,6 @@
   "scm.diffDecorationsGutterVisibility": "hover",
   "scm.diffDecorations": "gutter",
   "git.autofetch": true,
-  "editor.stickyScroll.enabled": false,
   "php.validate.executablePath": "",
   "terminal.integrated.defaultProfile.linux": "bash",
   "launch": {
@@ -34,18 +34,18 @@
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "github.copilot.editor.enableAutoCompletions": true,
-  "editor.linkedEditing": true,
   "codeium.enableCodeLens": false,
   "workbench.editor.scrollToSwitchTabs": true,
-  "workbench.colorTheme": "Catppuccin Mocha",
   "editor.minimap.enabled": false,
-  "breadcrumbs.enabled": false,
   "workbench.editor.editorActionsLocation": "titleBar",
-  "workbench.statusBar.visible": false,
   "window.menuBarVisibility": "toggle",
 
   "editor.lineNumbers": "relative",
 
+  // shiny shiny
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "#D48EF9",
+  "vim.highlightedyank.duration": 100,
   "vim.easymotion": true,
   "vim.enableNeovim": true,
   "vim.incsearch": true,
@@ -65,21 +65,57 @@
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
-    // NAVIGATION
-    {
-      "before": ["<leader>", "e"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
-    },
-    {
-      "before": ["K"],
-      "commands": ["lineBreakInsert"],
-      "silent": true
-    },
     // switch b/w buffers
-    { "before": ["<S-h>"], "commands": [":bprevious"] },
-    { "before": ["<S-l>"], "commands": [":bnext"] },
+    {
+      "before": ["<S-h>"],
+      "commands": [":bprevious"]
+    },
+    {
+      "before": ["<S-l>"],
+      "commands": [":bnext"]
+    },
 
-    // splits
+    // scrolling like a master
+    {
+      "before": ["<S-j>"],
+      "commands": [
+        {
+          "command": "editorScroll",
+          "args": {
+            "to": "down",
+            "by": "line",
+            "revealCursor": true,
+            "value": 8
+          }
+        }
+      ]
+    },
+    {
+      "before": ["<S-k>"],
+      "commands": [
+        {
+          "command": "editorScroll",
+          "args": {
+            "to": "up",
+            "by": "line",
+            "revealCursor": true,
+            "value": 8
+          }
+        }
+      ]
+    },
+    // VSCode habits
+    {
+      "before": ["<C-a>"],
+      "after": ["g", "g", "V", "G"]
+    },
+    {
+      "before": ["<C-x>"],
+      "after": ["d", "d"]
+    },
+    // Alt Ctrl Up and Down
+    // Space D to highlight next word
+
     // { "before": ["leader", "v"], "commands": [":vsplit"] },
     // { "before": ["leader", "s"], "commands": [":split"] },
 
@@ -101,8 +137,8 @@
     //   "commands": ["workbench.action.focusRightGroup"]
     // },
     // NICE TO HAVE
-    { "before": ["leader", "s"], "commands": [":w!"] },
-    { "before": ["leader", "w"], "commands": [":q!"] },
+    // { "before": ["leader", "s"], "commands": [":w!"] },
+    // { "before": ["leader", "w"], "commands": [":q!"] },
     { "before": ["leader", "x"], "commands": [":x!"] },
     {
       "before": ["[", "d"],
@@ -111,10 +147,6 @@
     {
       "before": ["]", "d"],
       "commands": ["editor.action.marker.next"]
-    },
-    {
-      "before": ["<leader>", "d"],
-      "after": ["d", "d"]
     },
     {
       "before": ["<leader>", "c", "a"],
@@ -141,5 +173,19 @@
       "after": ["p", "g", "v", "y"]
     }
   ],
-  "workbench.activityBar.location": "hidden"
+  "workbench.sideBar.location": "right",
+  "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
+  "terminal.integrated.enableImages": true,
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "'FiraCode Nerd Font'",
+  "window.restoreFullscreen": true,
+  "window.newWindowDimensions": "inherit",
+  "editor.stickyScroll.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.statusBar.visible": false,
+  "material-icon-theme.activeIconPack": "react",
+  "js-beautify.wrap_attributes_indent_size": 2,
+  "breadcrumbs.enabled": false
 }
