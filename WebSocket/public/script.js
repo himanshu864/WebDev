@@ -12,20 +12,19 @@ const appendMessage = (text) => {
 };
 
 // when client joins
-const userName = prompt("What's your name?");
+const userName = prompt("WusYaName");
 appendMessage("You joined");
 socket.emit("new user", userName);
 
 // when client sends a message
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (input.value) {
-    appendMessage(`You: ${input.value}`);
+  if (!input.value) return;
 
-    socket.emit("new message", input.value);
-    input.value = "";
-    input.focus();
-  }
+  appendMessage(`You: ${input.value}`);
+  socket.emit("new message", input.value);
+  input.value = "";
+  input.focus();
 });
 
 // whenever someone joins

@@ -6,7 +6,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server);
 
-const users = {};
+const users = {}; // shared map[socketID] -> name
 
 app.use(express.static(__dirname + "/public"));
 
@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
   socket.on("new user", (name) => {
     users[socket.id] = name;
-    socket.broadcast.emit("user connected", name);
+    socket.broadcast.emit("user connected", name); // all expect sender
   });
 
   socket.on("new message", (msg) => {
