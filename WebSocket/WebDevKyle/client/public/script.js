@@ -1,3 +1,4 @@
+import { io } from "/socket.io-client/socket.io.esm.min.js";
 const socket = io("http://localhost:3000");
 
 const messagesList = document.getElementById("messages-list");
