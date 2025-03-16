@@ -1,6 +1,8 @@
+const { instrument } = require("@socket.io/admin-ui");
 const io = require("socket.io")(3000, {
   cors: {
-    origin: "http://localhost:8080",
+    origin: ["http://localhost:8080", "https://admin.socket.io"],
+    credentials: true,
   },
 });
 
@@ -17,7 +19,11 @@ io.on("connection", (socket) => {
     else socket.to(room).emit("room-message", user[socket.id], room, msg);
   });
 
-  socket.on("join-room", (room, cb) => {
+  socket.on("join-room", async (room, cb) => {
+    // limit room size to 2
+    const sockets = await io.in(room).fetchSockets();
+    if (sockets.length == 2) return;
+
     socket.join(room);
     cb(`You joined a Room with ID : ${room}`);
     socket.to(room).emit("room-message", user[socket.id], room, "Joined");
@@ -34,3 +40,5 @@ io.on("connection", (socket) => {
     delete user[socket.id];
   });
 });
+
+instrument(io, { auth: false });
