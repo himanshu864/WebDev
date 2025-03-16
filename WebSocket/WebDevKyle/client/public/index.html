@@ -42,6 +42,7 @@
 
       label {
         padding-top: 0.5rem;
+        padding-left: 1rem;
       }
 
       input {
@@ -84,12 +85,15 @@
     <form id="message-form">
       <label for="message-input">Message</label>
       <input type="text" id="message-input" />
+      <label for="private-room">Room ID (Blank for public)</label>
+      <input type="text" id="private-room" />
       <button type="submit" id="send-button">Send</button>
     </form>
     <form id="room-form">
       <label for="room-input">Room</label>
       <input type="text" id="room-input" />
-      <button type="submit" id="room-button">Join</button>
+      <button type="submit" id="room-join-button">Join</button>
+      <button type="button" id="room-leave-button">Leave</button>
     </form>
   </body>
 </html>
