@@ -1,0 +1,23 @@
+# Git and Docker config
+.git
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Dependencies (these should be installed inside the container)
+node_modules
+
+# Source code (if using a multi-stage build, you only need 'dist')
+src
+
+# Compiled output (if you copy 'src' and build inside the container)
+dist
+
+# Local environment and data
+.env
+.env.*
+postgres_data
+
+# Logs
+npm-debug.log*

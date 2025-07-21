@@ -1,0 +1,11 @@
+# Ignore build output
+/dist
+
+# Ignore dependencies
+/node_modules
+
+# Ignore package lock files
+package-lock.json
+
+# Don't format prisma migrations
+/prisma/migrations
