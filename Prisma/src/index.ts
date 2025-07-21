@@ -1,10 +1,32 @@
 import { prisma } from './lib/prisma'
 
 async function main() {
+  await prisma.category.deleteMany()
+  await prisma.post.deleteMany()
+  await prisma.userPreferences.deleteMany()
+  await prisma.user.deleteMany()
+
+  await prisma.user.create({
+    data: {
+      email: 'himanshu@gmail.com',
+      age: 21,
+      name: 'Himanshu',
+    },
+  })
+
   const newUser = await prisma.user.create({
     data: {
-      name: 'Rahul',
-      email: 'rahul@gmail.com',
+      email: 'rishav@gmail.com',
+      age: 21,
+      name: 'Rishav',
+      preference: {
+        create: {
+          emailUpdates: true,
+        },
+      },
+    },
+    include: {
+      preference: true,
     },
   })
 
@@ -16,11 +38,10 @@ async function main() {
 }
 
 main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
   .catch(async (e) => {
     console.error(e)
-    await prisma.$disconnect()
     process.exit(1)
+  })
+  .finally(async () => {
+    await prisma.$disconnect()
   })

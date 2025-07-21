@@ -7,9 +7,50 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  BASIC
+  ADMIN
+}
+
 model User {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   createdAt DateTime @default(now())
   email String @unique
+  age Int
   name String
+  preference UserPreferences?
+  role Role @default(BASIC)
+  writtenPosts Post[] @relation("WrittenPosts")
+  favoritePosts Post[] @relation("FavoritedPosts")
+
+  @@unique([age, name])
+  @@index([email])
+}
+
+model UserPreferences {
+  id String @id @default(uuid())
+  emailUpdates Boolean
+  user User @relation(fields: [userId], references: [id])
+  userId String @unique
+}
+
+model Post {
+  id String @id @default(uuid())
+  title String
+  averageRating Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  authorId String
+  author User @relation("WrittenPosts", fields: [authorId], references: [id])
+  favoritedById String
+  favoritedBy User @relation("FavoritedPosts", fields: [favoritedById], references: [id])
+  categories Category[]
+}
+
+model Category {
+  id String @id @default(uuid())
+  name String @unique
+  posts Post[]
+
+  // @@id([id, name])
 }
